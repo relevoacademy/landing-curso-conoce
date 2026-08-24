@@ -1,0 +1,912 @@
+<!DOCTYPE html>
+<html lang="es">
+<head>
+<meta charset="utf-8">
+<meta name="viewport" content="width=device-width,initial-scale=1">
+<meta name="description" content="Curso online de Claude en espanol. Cuatro horas en vivo: chat, Proyectos y Artefactos. Sales con tu propio Proyecto funcionando. Relevo, academia de IA.">
+<meta name="theme-color" content="#050505">
+<meta property="og:type" content="website">
+<meta property="og:title" content="Curso de Claude - Relevo">
+<meta property="og:description" content="Aprende a usar Claude desde cero y termina con algo tuyo funcionando. Cuatro horas en vivo.">
+<meta property="og:locale" content="es_CO">
+<meta name="twitter:card" content="summary_large_image">
+<title>Curso de Claude Relevo</title>
+<link rel="preconnect" href="https://fonts.googleapis.com">
+<link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
+<link rel="stylesheet" href="https://fonts.googleapis.com/css2?family=Instrument+Sans:ital,wght@0,400..700;1,400..700&display=swap">
+<style>
+:root{
+  --bg:#050505; --surface:#131415; --surface-2:#1B1D1E;
+  --line:rgba(167,171,175,.13); --line-strong:rgba(167,171,175,.26);
+  --text:#FFFFFF; --dim:#A7ABAF; --faint:#6E7376;
+  --accent:#1FE6AB; --accent-hi:#5CF0C6; --accent-deep:#0B7759;
+  --soft:rgba(31,230,171,.11); --aline:rgba(31,230,171,.28);
+  --warn:#E8A33D; --warn-soft:rgba(232,163,61,.10); --warn-line:rgba(232,163,61,.3);
+  --r:24px; --r-in:14px; --pill:999px;
+  --fast:.25s; --slow:.45s; --ease:cubic-bezier(.16,1,.3,1);
+  --sans:"Instrument Sans",system-ui,-apple-system,sans-serif;
+  --mono:ui-monospace,SFMono-Regular,Menlo,Consolas,monospace;
+}
+*{box-sizing:border-box}
+html{scroll-behavior:smooth}
+body{margin:0;background:var(--bg);color:var(--text);font-family:var(--sans);font-size:16px;line-height:1.6;-webkit-font-smoothing:antialiased;overflow-x:hidden}
+.wrap{max-width:1080px;margin:0 auto;padding:0 28px}
+section{padding:92px 0}
+.band{background:var(--surface);border-top:1px solid var(--line);border-bottom:1px solid var(--line)}
+.eye{font-size:.68rem;font-weight:600;letter-spacing:.19em;text-transform:uppercase;color:var(--accent);margin:0 0 14px}
+h1{font-size:clamp(2.3rem,5.6vw,3.9rem);font-weight:700;letter-spacing:-.042em;line-height:1.04;margin:0 0 20px;text-wrap:balance}
+h2{font-size:clamp(1.75rem,3.4vw,2.5rem);font-weight:700;letter-spacing:-.034em;line-height:1.1;margin:0 0 16px;text-wrap:balance}
+h3{font-size:1.06rem;font-weight:700;letter-spacing:-.016em;margin:0 0 7px}
+p{margin:0 0 15px}
+.lede{font-size:clamp(1rem,1.6vw,1.15rem);color:var(--dim);max-width:60ch;line-height:1.68}
+.sec-head{max-width:62ch;margin-bottom:42px}
+.mid{margin-left:auto;margin-right:auto;text-align:center}
+.mid .lede{margin-left:auto;margin-right:auto}
+
+.nav{position:sticky;top:0;z-index:60;background:rgba(5,5,5,.84);backdrop-filter:blur(16px);border-bottom:1px solid transparent;transition:border-color var(--fast) var(--ease)}
+.nav.stuck{border-bottom-color:var(--line)}
+.nav-in{max-width:1080px;margin:0 auto;padding:15px 28px;display:flex;align-items:center;justify-content:space-between;gap:20px}
+.nav img{display:block;width:148px;height:auto}
+.nav .r{display:flex;align-items:center;gap:22px}
+.nav a.txt{color:var(--dim);text-decoration:none;font-size:.9rem;font-weight:500;transition:color var(--fast) var(--ease)}
+.nav a.txt:hover{color:var(--text)}
+@media(max-width:860px){.nav a.txt{display:none}}
+
+.btn{display:inline-flex;align-items:center;justify-content:center;gap:9px;text-decoration:none;background:var(--accent);color:var(--bg);border:0;border-radius:var(--pill);padding:15px 30px;font-family:var(--sans);font-size:.97rem;font-weight:700;letter-spacing:-.012em;cursor:pointer;transition:background var(--fast) var(--ease),transform var(--fast) var(--ease)}
+.btn:hover{background:var(--accent-hi);transform:translateY(-2px)}
+.btn:focus-visible{outline:2px solid var(--accent-hi);outline-offset:3px}
+.btn.sm{padding:10px 20px;font-size:.86rem}
+.btn.big{padding:18px 40px;font-size:1.04rem}
+
+/* Portada */
+.hero{position:relative;padding:74px 0 66px;overflow:hidden;text-align:center}
+.hero::before{content:"";position:absolute;top:-300px;left:50%;transform:translateX(-50%);width:960px;height:640px;background:radial-gradient(ellipse at center,rgba(31,230,171,.17),transparent 66%);pointer-events:none;filter:blur(14px)}
+.hero-in{position:relative;max-width:820px;margin:0 auto}
+.claude-tag{display:inline-flex;align-items:center;gap:10px;background:var(--surface);border:1px solid var(--line);border-radius:var(--pill);padding:9px 20px;font-size:.86rem;font-weight:600;color:var(--dim);margin-bottom:26px}
+.claude-tag i{width:8px;height:8px;border-radius:50%;background:var(--accent);flex:none}
+.hero h1 em{font-style:normal;color:var(--accent)}
+.hero .lede{margin:0 auto 32px}
+.proof{display:flex;align-items:center;justify-content:center;gap:16px;margin-top:34px;flex-wrap:wrap}
+.faces{display:flex}
+.face{width:44px;height:44px;border-radius:50%;border:2px solid var(--bg);background:var(--surface-2);margin-left:-13px;display:block;object-fit:cover;box-shadow:0 0 0 1px var(--line)}
+@media(max-width:420px){.face:nth-child(n+6){display:none}}
+.face:first-child{margin-left:0}
+.proof-tx{text-align:left;font-size:.9rem;color:var(--dim)}
+.proof-tx b{display:block;color:var(--text);font-weight:700}
+.hold{display:inline-flex;align-items:center;gap:9px;background:var(--warn-soft);border:1px dashed var(--warn-line);border-radius:var(--pill);padding:7px 16px;font-size:.72rem;font-weight:600;letter-spacing:.05em;color:var(--warn);margin-top:22px}
+
+/* Rejillas */
+.grid{display:grid;gap:14px;grid-auto-rows:1fr}
+.g2{grid-template-columns:repeat(auto-fit,minmax(min(420px,100%),1fr))}
+.g3{grid-template-columns:repeat(auto-fit,minmax(min(262px,100%),1fr))}
+.card{background:var(--surface);border:1px solid var(--line);border-radius:var(--r);padding:28px 30px;transition:border-color var(--fast) var(--ease),transform var(--fast) var(--ease)}
+.card:hover{border-color:var(--line-strong);transform:translateY(-2px)}
+.card p{color:var(--dim);font-size:.92rem;margin:0}
+.card .n{display:inline-flex;align-items:center;justify-content:center;width:38px;height:38px;border-radius:var(--pill);background:var(--soft);border:1px solid var(--aline);color:var(--accent);font-size:.82rem;font-weight:700;margin-bottom:16px}
+
+/* Herramientas */
+.tools{display:grid;grid-template-columns:repeat(auto-fit,minmax(min(300px,100%),1fr));gap:12px}
+.tool{display:flex;gap:16px;align-items:flex-start;background:var(--surface);border:1px solid var(--line);border-radius:var(--r-in);padding:22px 24px;transition:border-color var(--fast) var(--ease)}
+.tool:hover{border-color:var(--aline)}
+.tool .ix{flex:none;width:32px;height:32px;border-radius:var(--pill);background:var(--soft);border:1px solid var(--aline);color:var(--accent);display:grid;place-items:center;font-size:.76rem;font-weight:700}
+.tool b{display:block;font-size:.98rem;font-weight:700;letter-spacing:-.014em;margin-bottom:3px}
+.tool span{font-size:.88rem;color:var(--dim);line-height:1.55}
+
+/* Carrusel del temario */
+.deck{position:relative;margin:0 -28px}
+.rail{display:flex;gap:20px;overflow-x:auto;scroll-snap-type:x mandatory;padding:44px 0 32px;scrollbar-width:none;-webkit-overflow-scrolling:touch;perspective:1500px}
+.rail::-webkit-scrollbar{display:none}
+.pad{flex:none;width:calc(50vw - 190px);min-width:28px}
+.mcard{flex:none;width:376px;scroll-snap-align:center;background:var(--surface);border:1px solid var(--line);border-radius:var(--r);padding:32px 34px;display:flex;flex-direction:column;min-height:430px;transform-style:preserve-3d;will-change:transform,opacity;transition:border-color var(--fast) var(--ease),background var(--fast) var(--ease)}
+.mcard.mid2{border-color:var(--aline);background:linear-gradient(168deg,rgba(31,230,171,.06),var(--surface) 62%)}
+.mcard .k{display:inline-flex;align-items:center;justify-content:center;width:46px;height:46px;border-radius:var(--pill);background:var(--soft);border:1px solid var(--aline);color:var(--accent);font-size:.92rem;font-weight:700;margin-bottom:20px}
+.mcard h3{font-size:1.3rem;font-weight:700;letter-spacing:-.026em;margin:0 0 5px}
+.mcard .dur{font-size:.8rem;color:var(--faint);font-weight:500;margin:0 0 20px}
+.mcard ul{margin:0;padding:0;list-style:none;display:flex;flex-direction:column;gap:11px;flex:1}
+.mcard li{position:relative;padding-left:20px;font-size:.9rem;line-height:1.55;color:var(--dim)}
+.mcard li::before{content:"";position:absolute;left:2px;top:.6em;width:5px;height:5px;border-radius:50%;background:var(--accent);opacity:.65}
+.mcard li.hi{color:var(--text)}
+.deck-nav{display:flex;align-items:center;justify-content:center;gap:20px;margin-top:6px}
+.dbtn{appearance:none;cursor:pointer;background:transparent;border:1px solid var(--line-strong);border-radius:var(--pill);width:44px;height:44px;color:var(--dim);display:grid;place-items:center;transition:all var(--fast) var(--ease)}
+.dbtn:hover:not(:disabled){border-color:var(--aline);color:var(--accent-hi);background:var(--soft)}
+.dbtn:disabled{opacity:.28;cursor:default}
+.ddots{display:flex;gap:8px}
+.ddot{appearance:none;cursor:pointer;border:0;padding:0;width:8px;height:8px;border-radius:var(--pill);background:var(--line-strong);transition:all var(--fast) var(--ease)}
+.ddot[aria-current="true"]{background:var(--accent);width:26px}
+.hint{text-align:center;font-size:.82rem;color:var(--faint);margin:14px 0 0}
+@media(max-width:820px){.mcard{width:300px;min-height:404px;padding:26px}.pad{width:calc(50vw - 150px)}}
+
+/* Oferta */
+.offer{max-width:560px;margin:0 auto;background:var(--surface);border:1px solid var(--aline);border-radius:var(--r);padding:44px 42px;text-align:center;position:relative;overflow:hidden}
+.offer::before{content:"";position:absolute;top:-150px;left:50%;transform:translateX(-50%);width:440px;height:300px;background:radial-gradient(ellipse at center,rgba(31,230,171,.16),transparent 68%);pointer-events:none}
+.offer>*{position:relative}
+.offer .amt{font-size:3.5rem;font-weight:700;letter-spacing:-.048em;line-height:1;margin:8px 0 2px}
+.offer .amt small{font-size:1.05rem;color:var(--dim);vertical-align:super;margin-right:5px;font-weight:600}
+.offer .cop{font-size:.9rem;color:var(--dim);margin-bottom:6px}
+.offer .once{font-size:.85rem;color:var(--faint);margin-bottom:26px}
+.offer ul{margin:0 0 26px;padding:0;list-style:none;display:flex;flex-direction:column;gap:12px;text-align:left}
+.offer li{display:flex;gap:13px;font-size:.94rem;color:var(--dim);line-height:1.5}
+.offer li i{color:var(--accent);font-style:normal;flex:none;font-weight:700}
+.offer .btn{width:100%}
+.gtee{display:inline-flex;align-items:center;justify-content:center;gap:10px;background:var(--soft);border:1px solid var(--aline);border-radius:var(--pill);padding:10px 20px;font-size:.86rem;font-weight:600;color:var(--accent);margin-top:20px}
+.pays{display:flex;justify-content:center;flex-wrap:wrap;gap:9px;margin-top:20px}
+.pay{background:var(--bg);border:1px solid var(--line);border-radius:9px;padding:8px 14px;font-size:.74rem;font-weight:600;color:var(--faint);letter-spacing:.03em}
+
+/* Certificado */
+.cert{display:grid;grid-template-columns:1fr 1fr;gap:44px;align-items:center}
+@media(max-width:820px){.cert{grid-template-columns:1fr;gap:32px}}
+.cert-img{background:linear-gradient(150deg,var(--surface),var(--bg));border:1px solid var(--aline);border-radius:var(--r);padding:38px 34px;text-align:center;position:relative}
+.cert-img .seal{width:58px;height:58px;border-radius:50%;background:var(--soft);border:1px solid var(--aline);display:grid;place-items:center;margin:0 auto 18px;color:var(--accent);font-size:1.3rem}
+.cert-img .ln{font-size:.68rem;letter-spacing:.2em;text-transform:uppercase;color:var(--faint);margin:0 0 10px}
+.cert-img h4{font-size:1.24rem;font-weight:700;letter-spacing:-.024em;margin:0 0 6px}
+.cert-img .nm{font-size:.94rem;color:var(--accent);margin:0 0 20px}
+.cert-img .fo{font-size:.76rem;color:var(--faint);border-top:1px solid var(--line);padding-top:16px;margin:0}
+
+/* Preguntas */
+.faq{display:flex;flex-direction:column;gap:8px;max-width:820px;margin:0 auto}
+.q{background:var(--surface);border:1px solid var(--line);border-radius:var(--r-in);overflow:hidden;transition:border-color var(--fast) var(--ease)}
+.q[open]{border-color:var(--aline)}
+.q summary{list-style:none;cursor:pointer;padding:19px 24px;display:flex;align-items:center;justify-content:space-between;gap:18px;font-size:.97rem;font-weight:600;letter-spacing:-.012em}
+.q summary::-webkit-details-marker{display:none}
+.q summary:focus-visible{outline:2px solid var(--accent);outline-offset:-2px;border-radius:var(--r-in)}
+.q .pm{flex:none;color:var(--accent);font-size:1.1rem;transition:transform var(--fast) var(--ease)}
+.q[open] .pm{transform:rotate(45deg)}
+.q-b{padding:0 24px 22px;font-size:.93rem;color:var(--dim);line-height:1.7;max-width:66ch}
+.q-b p{margin:0}
+.q-b b{color:var(--text)}
+
+.end{text-align:center;padding:100px 0}
+footer{border-top:1px solid var(--line);padding:60px 0 0;font-size:.88rem;color:var(--faint)}
+.f-in{display:grid;grid-template-columns:1.7fr 1fr 1fr;gap:44px;align-items:start}
+footer img{width:138px;height:auto;display:block;margin-bottom:16px;opacity:.9}
+footer a{color:var(--dim);text-decoration:none;transition:color var(--fast) var(--ease)}
+footer a:hover{color:var(--accent-hi)}
+.f-brand p{margin:0;line-height:1.7;max-width:30ch}
+.f-col h4{font-size:.68rem;font-weight:600;letter-spacing:.19em;text-transform:uppercase;color:var(--faint);margin:0 0 16px}
+.f-col ul{margin:0;padding:0;list-style:none;display:flex;flex-direction:column;gap:11px}
+.f-bot{margin-top:50px;border-top:1px solid var(--line);padding:24px 0 40px;display:flex;justify-content:space-between;gap:20px;flex-wrap:wrap;align-items:center;font-size:.82rem}
+.f-bot .tag{color:var(--dim);font-weight:600}
+@media(max-width:820px){.f-in{grid-template-columns:1fr 1fr;gap:38px}.f-brand{grid-column:1 / -1}}
+@media(max-width:520px){.f-in{grid-template-columns:1fr}.f-bot{flex-direction:column;align-items:flex-start;gap:10px}}
+
+.rise{opacity:0;transform:translateY(20px);transition:opacity var(--slow) var(--ease),transform var(--slow) var(--ease)}
+.rise.in{opacity:1;transform:none}
+@media(prefers-reduced-motion:reduce){*{animation-duration:.01ms!important;transition-duration:.01ms!important}.rise{opacity:1;transform:none}.mcard{transform:none!important;opacity:1!important}}
+.sheet{position:fixed;inset:0;z-index:200;display:none}
+#legal{z-index:210}
+.sheet.on{display:block}
+.sh-bg{position:absolute;inset:0;background:rgba(0,0,0,.76);backdrop-filter:blur(4px);animation:fadein var(--fast) var(--ease)}
+@keyframes fadein{from{opacity:0}to{opacity:1}}
+.sh-box{position:relative;margin:0 auto;max-width:800px;height:100%;background:var(--surface);border-left:1px solid var(--line);border-right:1px solid var(--line);overflow-y:auto;animation:slidein var(--slow) var(--ease)}
+@keyframes slidein{from{opacity:0;transform:translateY(26px)}to{opacity:1;transform:none}}
+.sh-top{position:sticky;top:0;z-index:3;background:var(--surface);border-bottom:1px solid var(--line);padding:18px 34px 0}
+.sh-hd{display:flex;align-items:center;justify-content:space-between;gap:18px;margin-bottom:14px}
+.sh-hd img{width:118px;height:auto;display:block;opacity:.9}
+.sh-x{appearance:none;cursor:pointer;flex:none;background:transparent;border:1px solid var(--line-strong);border-radius:var(--pill);color:var(--dim);font-family:var(--sans);font-weight:600;font-size:.74rem;letter-spacing:.06em;text-transform:uppercase;padding:9px 18px;transition:all var(--fast) var(--ease)}
+.sh-x:hover{border-color:var(--aline);color:var(--accent-hi)}
+.sh-x:focus-visible{outline:2px solid var(--accent);outline-offset:2px}
+.sh-tabs{display:flex;gap:26px;overflow-x:auto;scrollbar-width:none}
+.sh-tabs::-webkit-scrollbar{display:none}
+.sh-tab{appearance:none;background:none;border:0;cursor:pointer;padding:10px 0 14px;flex:none;font-family:var(--sans);font-size:.9rem;font-weight:600;letter-spacing:-.012em;color:var(--faint);position:relative;white-space:nowrap;transition:color var(--fast) var(--ease)}
+.sh-tab::after{content:"";position:absolute;left:0;right:0;bottom:0;height:2px;background:var(--accent);border-radius:2px 2px 0 0;transform:scaleX(0);transition:transform var(--fast) var(--ease)}
+.sh-tab:hover{color:var(--dim)}
+.sh-tab[aria-selected="true"]{color:var(--text)}
+.sh-tab[aria-selected="true"]::after{transform:scaleX(1)}
+.sh-tab:focus-visible{outline:2px solid var(--accent);outline-offset:3px;border-radius:5px}
+.sh-body{padding:32px 34px 70px}
+.doc{display:none;animation:slidein var(--slow) var(--ease)}
+.doc.on{display:block}
+.doc>h3{font-size:1.42rem;font-weight:700;letter-spacing:-.028em;margin:0 0 6px}
+.doc .meta{font-size:.82rem;color:var(--faint);margin:0 0 30px;padding-bottom:22px;border-bottom:1px solid var(--line)}
+.doc h4{font-size:.98rem;font-weight:700;letter-spacing:-.014em;margin:32px 0 10px;display:flex;align-items:baseline;gap:12px}
+.doc h4:first-of-type{margin-top:0}
+.doc h4 .n{font-size:.72rem;font-weight:700;color:var(--accent);flex:none;min-width:22px}
+.doc p{margin:0 0 12px;font-size:.92rem;line-height:1.75;color:var(--dim);max-width:66ch}
+.doc b{color:var(--text);font-weight:600}
+.doc ul{margin:0 0 12px;padding:0;list-style:none;display:flex;flex-direction:column;gap:9px}
+.doc li{position:relative;padding-left:24px;font-size:.91rem;line-height:1.68;color:var(--dim);max-width:66ch}
+.doc li::before{content:"";position:absolute;left:7px;top:.68em;width:5px;height:5px;border-radius:50%;background:var(--accent);opacity:.7}
+.doc .box{background:var(--bg);border:1px solid var(--aline);border-radius:var(--r-in,14px);padding:18px 22px;margin:0 0 14px}
+.doc .box p{margin:0;color:var(--text)}
+.doc .sign{margin-top:38px;padding-top:22px;border-top:1px solid var(--line);font-size:.85rem;color:var(--faint)}
+@media(max-width:640px){.sh-top{padding:14px 20px 0}.sh-body{padding:26px 20px 60px}.sh-tabs{gap:18px}}
+
+.co-box{max-width:560px;height:auto;max-height:calc(100% - 56px);margin:28px auto;border:1px solid var(--line);border-radius:var(--r);border-left:1px solid var(--line);border-right:1px solid var(--line)}
+.co-top{padding:26px 32px 22px;border-bottom:1px solid var(--line);display:flex;align-items:flex-start;justify-content:space-between;gap:18px}
+.co-top h3{font-size:1.2rem;font-weight:700;letter-spacing:-.024em;margin:0 0 4px}
+.co-top p{margin:0;font-size:.86rem;color:var(--faint)}
+.co-body{padding:26px 32px 32px}
+.co-line{display:flex;align-items:baseline;justify-content:space-between;gap:16px;padding:13px 0;border-bottom:1px solid var(--line);font-size:.92rem;color:var(--dim)}
+.co-line b{color:var(--text);font-weight:600}
+.co-line.tot{border-bottom:0;padding-top:18px;font-size:1rem}
+.co-line.tot b{font-size:1.6rem;font-weight:700;letter-spacing:-.03em}
+.co-fields{display:flex;flex-direction:column;gap:11px;margin:22px 0 0}
+.co-fields label{font-size:.8rem;font-weight:600;color:var(--dim);display:block;margin-bottom:6px}
+.co-fields input[type=text],.co-fields input[type=email]{width:100%;background:var(--bg);border:1px solid var(--line);border-radius:11px;padding:12px 15px;color:var(--text);font-family:var(--sans);font-size:.93rem;transition:border-color var(--fast) var(--ease)}
+.co-fields input::placeholder{color:var(--faint)}
+.co-fields input:focus{outline:none;border-color:var(--aline)}
+
+.chk{display:flex;gap:13px;align-items:flex-start;padding:16px 18px;border:1px solid var(--line);border-radius:var(--r-in,14px);background:var(--bg);cursor:pointer;transition:border-color var(--fast) var(--ease),background var(--fast) var(--ease)}
+.chk:hover{border-color:var(--line-strong)}
+.chk:has(input:checked){border-color:var(--aline);background:var(--soft)}
+.chk input{appearance:none;flex:none;width:21px;height:21px;margin:1px 0 0;border:1.5px solid var(--line-strong);border-radius:6px;background:transparent;cursor:pointer;position:relative;transition:all var(--fast) var(--ease)}
+.chk input:checked{background:var(--accent);border-color:var(--accent)}
+.chk input:checked::after{content:"";position:absolute;left:6.5px;top:2.5px;width:5px;height:10px;border:solid var(--bg);border-width:0 2.4px 2.4px 0;transform:rotate(42deg)}
+.chk input:focus-visible{outline:2px solid var(--accent);outline-offset:3px}
+.chk .tx{font-size:.88rem;line-height:1.6;color:var(--dim)}
+.chk .tx b{color:var(--text);font-weight:600}
+.chk .tx a{color:var(--accent);text-decoration:underline;text-underline-offset:3px}
+.chk .tx a:hover{color:var(--accent-hi)}
+.chk .req{display:block;font-size:.72rem;font-weight:600;letter-spacing:.09em;text-transform:uppercase;color:var(--faint);margin-top:7px}
+.chk .req.on{color:var(--accent)}
+
+.co-warn{background:rgba(232,163,61,.09);border:1px solid rgba(232,163,61,.3);border-radius:var(--r-in,14px);padding:15px 18px;margin:14px 0 0;font-size:.85rem;line-height:1.62;color:var(--dim)}
+.co-warn b{color:#E8A33D}
+.co-pay{width:100%;margin-top:20px}
+.co-pay:disabled{background:var(--surface-2);color:var(--faint);cursor:not-allowed;transform:none}
+.co-pay:disabled:hover{background:var(--surface-2);transform:none}
+.co-ver{font-size:.76rem;color:var(--faint);text-align:center;margin:14px 0 0;line-height:1.7}
+@media(max-width:640px){.co-box{margin:0;max-height:100%;border-radius:0;height:100%}.co-top,.co-body{padding-left:22px;padding-right:22px}}
+.holder{display:inline-flex;align-items:center;gap:9px;background:rgba(232,163,61,.10);border:1px dashed rgba(232,163,61,.42);border-radius:var(--pill);padding:7px 16px;font-size:.72rem;font-weight:600;letter-spacing:.06em;color:#E8A33D;margin-bottom:20px}
+.says{display:grid;grid-template-columns:repeat(auto-fit,minmax(min(292px,100%),1fr));gap:14px}
+.say{background:var(--surface);border:1px solid var(--line);border-radius:var(--r);padding:30px 32px;display:flex;flex-direction:column;transition:border-color var(--fast) var(--ease),transform var(--fast) var(--ease)}
+.say:hover{border-color:var(--line-strong);transform:translateY(-2px)}
+.say .qm{font-size:2.2rem;line-height:1;color:var(--accent);opacity:.45;margin-bottom:12px;font-weight:700}
+.say blockquote{margin:0 0 22px;font-size:.98rem;line-height:1.66;color:var(--text);flex:1}
+.say .who{display:flex;align-items:center;gap:13px;padding-top:19px;border-top:1px solid var(--line)}
+.say .av{flex:none;width:38px;height:38px;border-radius:var(--pill);background:var(--surface-2);border:1px dashed var(--line-strong);display:grid;place-items:center;font-size:.68rem;color:var(--faint)}
+.say .who b{display:block;font-size:.9rem;font-weight:700;letter-spacing:-.01em}
+.say .who span{font-size:.82rem;color:var(--faint)}
+
+</style>
+
+<nav class="nav" id="nav">
+  <div class="nav-in">
+    <img src="assets/relevo-lockup.png" alt="Relevo">
+    <div class="r">
+      <a class="txt" href="#herramientas">Herramientas</a>
+      <a class="txt" href="#temario">Temario</a>
+      <a class="txt" href="#precio">Precio</a>
+      <a class="txt" href="#preguntas">Preguntas</a>
+      <button class="btn sm" type="button" data-buy>Inscribirme</button>
+    </div>
+  </div>
+</nav>
+
+<!-- 1 · PORTADA -->
+<header class="hero">
+  <div class="wrap hero-in">
+    <span class="claude-tag"><i></i>Curso online de Claude</span>
+    <h1>Aprende a usar Claude desde cero — y termina con <em>algo tuyo</em> funcionando.</h1>
+    <p class="lede">4 horas en vivo. Chat, Proyectos y Artefactos. Sales sabiendo qué le estás pidiendo — y cuándo se equivoca.</p>
+    <button class="btn big" type="button" data-buy>Inscribirme al curso</button>
+
+    <div class="proof">
+      <div class="faces">
+        <img class="face" src="assets/alumnos/alumno-1.webp" alt="" width="44" height="44" loading="eager" decoding="async">
+        <img class="face" src="assets/alumnos/alumno-2.webp" alt="" width="44" height="44" loading="eager" decoding="async">
+        <img class="face" src="assets/alumnos/alumno-3.webp" alt="" width="44" height="44" loading="eager" decoding="async">
+        <img class="face" src="assets/alumnos/alumno-4.webp" alt="" width="44" height="44" loading="eager" decoding="async">
+        <img class="face" src="assets/alumnos/alumno-5.webp" alt="" width="44" height="44" loading="eager" decoding="async">
+        <img class="face" src="assets/alumnos/alumno-6.webp" alt="" width="44" height="44" loading="eager" decoding="async">
+        <img class="face" src="assets/alumnos/alumno-7.webp" alt="" width="44" height="44" loading="eager" decoding="async">
+      </div>
+      <span class="proof-tx"><b>Primera edición en vivo</b>Cupos limitados</span>
+    </div>
+    <p class="hold">◍ Fotos reales de alumnos y cifra verificable — pendientes</p>
+  </div>
+</header>
+
+<!-- 2 · HERRAMIENTAS -->
+<section class="band" id="herramientas">
+  <div class="wrap">
+    <div class="sec-head mid">
+      <p class="eye">Todas en un solo curso</p>
+      <h2>Siete herramientas que te llevas puestas.</h2>
+      <p class="lede">No son teoría. Son prompts y procesos que copias, usas y sigues usando mucho después de que el curso termine.</p>
+    </div>
+    <div class="tools">
+      <div class="tool"><span class="ix">1</span><span><b>Constructor de instrucciones</b><span>Le das tu idea en crudo y te la devuelve armada, con las cuatro partes a la vista.</span></span></div>
+      <div class="tool"><span class="ix">2</span><span><b>Repertorio de refinamiento</b><span>Seis frases para cuando la respuesta no sirvió. No se ejecuta: se consulta.</span></span></div>
+      <div class="tool"><span class="ix">3</span><span><b>Diagnóstico de conversación</b><span>Lo pegas en un chat largo y te dice si eso ya es un Proyecto o pide un Artefacto.</span></span></div>
+      <div class="tool"><span class="ix">4</span><span><b>Arranque de tu Proyecto</b><span>Te entrevista y devuelve las instrucciones de tu Proyecto, qué cargar y tres pedidos listos.</span></span></div>
+      <div class="tool"><span class="ix">5</span><span><b>Constructor de visualización</b><span>Genera el super prompt que convierte tu información en algo que puedes ver y decidir.</span></span></div>
+      <div class="tool"><span class="ix">6</span><span><b>Capa de privacidad</b><span>Un bloque que pegas dentro de las instrucciones de tu Proyecto para que no te pida lo que no debe.</span></span></div>
+      <div class="tool"><span class="ix">7</span><span><b>Revisión de lo que subiste</b><span>Mira los documentos que ya cargaste y te dice, uno por uno, qué no debería estar ahí.</span></span></div>
+    </div>
+  </div>
+</section>
+
+<!-- 3 · QUÉ VAS A CREAR -->
+<section>
+  <div class="wrap">
+    <div class="sec-head">
+      <p class="eye">Lo que vas a construir</p>
+      <h2>Sales con cuatro cosas hechas, no con apuntes.</h2>
+      <p class="lede">Todo lo que armas durante el curso es sobre tu propio trabajo — no sobre un ejemplo de manual.</p>
+    </div>
+    <div class="grid g2">
+      <div class="card"><span class="n">01</span><h3>Tu Proyecto personalizado</h3><p>Creado desde tu propia entrevista, con tu contexto, tu criterio de calidad y tu forma de trabajar adentro. Para tu trabajo, tu emprendimiento, tus estudios o tu vida.</p></div>
+      <div class="card"><span class="n">02</span><h3>Una visualización de tu información</h3><p>Estados, procesos, líneas de tiempo o comparaciones. Lo que estaba disperso en notas y mensajes, junto y mirable.</p></div>
+      <div class="card"><span class="n">03</span><h3>Tu primer documento de contexto</h3><p>Escrito con tus propias respuestas. Es el arranque de tu base de conocimiento, y sigue siendo tuyo aunque cambies de herramienta.</p></div>
+      <div class="card"><span class="n">04</span><h3>Tu criterio para verificar</h3><p>Saber cuándo la respuesta está mal antes de usarla. Lo que casi ningún curso enseña y lo que evita el error caro.</p></div>
+    </div>
+  </div>
+</section>
+
+<!-- 4 · DESDE CERO -->
+<section class="band">
+  <div class="wrap">
+    <div class="sec-head mid">
+      <p class="eye">Empezamos desde cero</p>
+      <h2>No necesitas saber nada de IA. Ni programar.</h2>
+      <p class="lede">Cada concepto se explica con ejemplos reales, cada herramienta se enseña paso a paso, y tu caso lo construimos juntos en vivo. Sin requisitos técnicos y sin relleno.</p>
+    </div>
+    <div class="grid g3">
+      <div class="card"><span class="n">◍</span><h3>Sin conocimientos previos</h3><p>Si nunca abriste Claude, este es el lugar. El primer módulo empieza explicando qué es y qué no es la herramienta.</p></div>
+      <div class="card"><span class="n">◍</span><h3>Sin cuenta paga</h3><p>Se hace completo con la versión gratuita de Claude. No tienes que suscribirte a nada para tomarlo.</p></div>
+      <div class="card"><span class="n">◍</span><h3>Sin perfil técnico</h3><p>Pensado para profesionales, emprendedores y personas que quieren empezar a usar IA de forma práctica.</p></div>
+    </div>
+  </div>
+</section>
+
+<!-- 5 · TEMARIO -->
+<section id="temario">
+  <div class="wrap" style="overflow:visible">
+    <div class="sec-head mid">
+      <p class="eye">4 horas en vivo · 7 herramientas · 100% práctico</p>
+      <h2>Cinco módulos, una sola cosa construida.</h2>
+      <p class="lede">Cada módulo cierra con un límite y con una prueba que haces tú. Al final de cada uno sabes si te funcionó — no tienes que creernos.</p>
+    </div>
+    <div class="deck">
+<div class="rail" id="rail" tabindex="0" aria-label="Módulos">
+<span class="pad"></span>
+<article class="mcard"><span class="k">01</span><h3>Cómo funciona Claude</h3><p class="dur">20 min</p><ul><li>Qué es un modelo de lenguaje y qué no es</li><li class="hi">Escribe tan bien que puede escribir muy bien algo falso</li><li>Los tres motivos por los que se equivoca</li><li class="hi">La regla de la casa: tú decides, tu IA ejecuta</li></ul></article>
+<article class="mcard"><span class="k">02</span><h3>Chat e instrucciones</h3><p class="dur">45 min</p><ul><li>La interfaz en cinco minutos</li><li class="hi">Anatomía de una instrucción: contexto, tarea, formato y restricciones</li><li>Iterar: por qué la primera respuesta no es la buena</li><li>Archivos e imágenes</li><li>Cuándo el chat ya no es la herramienta</li></ul></article>
+<article class="mcard"><span class="k">03</span><h3>Proyectos personalizados</h3><p class="dur">70 min</p><ul><li>Dejar de explicar quién eres en cada conversación</li><li>Cómo se crea uno, paso a paso</li><li>Las instrucciones y el conocimiento del proyecto</li><li class="hi">La entrevista arma tu Proyecto con tus respuestas</li><li>La prueba: tu Proyecto contra un chat vacío</li></ul></article>
+<article class="mcard"><span class="k">04</span><h3>Artefactos y visualizaciones</h3><p class="dur">50 min</p><ul><li>Pedir una cosa terminada, no una respuesta</li><li>Estados, procesos, líneas de tiempo, comparaciones</li><li class="hi">El super prompt que genera tu visualización</li><li>Dónde queda, cómo lo descargas, qué pasa si lo publicas</li></ul></article>
+<article class="mcard"><span class="k">05</span><h3>Criterio, privacidad y verificación</h3><p class="dur">30 min</p><ul><li class="hi">Cómo suena una respuesta inventada</li><li>Verificar antes de usar</li><li>Qué información no subes nunca</li><li class="hi">Qué no se delega jamás: decisiones, juicio, responsabilidad</li></ul></article>
+<span class="pad"></span>
+</div>
+<div class="deck-nav"><button class="dbtn" id="dprev" aria-label="Anterior"><svg width="17" height="17" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2.3"><path d="M15 18l-6-6 6-6" stroke-linecap="round" stroke-linejoin="round"/></svg></button><div class="ddots" id="ddots"></div><button class="dbtn" id="dnext" aria-label="Siguiente"><svg width="17" height="17" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2.3"><path d="M9 18l6-6-6-6" stroke-linecap="round" stroke-linejoin="round"/></svg></button></div>
+<p class="hint">Desliza para recorrer los módulos</p>
+    <p style="text-align:center;margin:32px 0 0"><a class="btn" href="#precio">Ver qué incluye y el precio</a></p>
+</div>
+  </div>
+</section>
+
+<!-- 6 · OFERTA -->
+<section class="band" id="precio">
+  <div class="wrap">
+    <div class="sec-head mid">
+      <p class="eye">Accede ahora</p>
+      <h2>Curso de Claude · CONOCE</h2>
+    </div>
+    <div class="offer">
+      <p class="eye" style="margin-bottom:6px">01 · Conoce</p>
+      <p class="amt"><small>USD</small>55</p>
+      <p class="cop">También disponible en <b style="color:var(--text)">pesos colombianos</b></p>
+      <p class="once">Pago único · sin suscripción</p>
+      <ul>
+        <li><i>✓</i>Acceso al en vivo por Zoom, 4 horas de formación</li>
+        <li><i>✓</i>Guía de puesta a punto para Mac y Windows, antes de la clase</li>
+        <li><i>✓</i>Las 7 herramientas, listas para copiar y usar</li>
+        <li><i>✓</i>Prompts y procesos paso a paso</li>
+        <li><i>✓</i>Material y diapositivas, sin fecha de vencimiento</li>
+        <li><i>✓</i>Soporte de especialista los primeros 15 días</li>
+        <li><i>✓</i>Examen y certificado a tu nombre</li>
+      </ul>
+      <button class="btn" type="button" data-buy>Inscribirme al curso</button>
+      <p class="gtee">✓ Garantía de 7 días — si no es para ti, te devolvemos el dinero</p>
+      <div class="pays"><span class="pay">Tarjeta</span><span class="pay">PSE</span><span class="pay">Nequi</span><span class="pay">Bancolombia</span><span class="pay">PayPal</span></div>
+      <p style="font-size:.78rem;color:var(--faint);margin:16px 0 0">Se puede hacer completo con la cuenta gratuita de Claude.</p>
+    </div>
+  </div>
+</section>
+
+<!-- 7 · CERTIFICADO -->
+<section id="certificado">
+  <div class="wrap cert">
+    <div>
+      <p class="eye">Certificado</p>
+      <h2>Se aprueba, no se regala.</h2>
+      <p class="lede">Al aprobar el examen final descargas un certificado de finalización a tu nombre. Agrégalo a tu perfil de LinkedIn, a tu hoja de vida o a tus propuestas.</p>
+      <p class="lede" style="font-size:.92rem">Y porque hay examen, dice algo. Un certificado que se entrega por haber mirado los videos no le sirve a nadie.</p>
+    </div>
+    <div class="cert-img">
+      <div class="seal">✦</div>
+      <p class="ln">Certificado de finalización</p>
+      <h4>01 · CONOCE</h4>
+      <p class="nm">Claude: chat, Proyectos y Artefactos</p>
+      <p class="fo">Relevo — Academia de IA · 4 horas · Examen aprobado</p>
+    </div>
+  </div>
+</section>
+
+<!-- 8 · TESTIMONIOS -->
+<section class="band" id="testimonios">
+  <div class="wrap">
+    <div class="sec-head mid">
+      <p class="eye">Súmate a nuestros</p>
+      <h2>Alumnos con resultados reales.</h2>
+    </div>
+    <p class="hold" style="display:flex;margin:0 auto 24px;width:fit-content">◍ Maquetación — reemplazar por los testimonios reales</p>
+    <div class="grid g3">
+      <div class="card"><p style="font-size:2rem;color:var(--accent);opacity:.45;margin:0 0 10px;font-weight:700;line-height:1">"</p><p style="color:var(--text);margin-bottom:20px">Llevaba meses usando la IA y me daba respuestas que sonaban bien pero no servían. Entendí que el problema era cómo estaba pidiendo.</p><p style="border-top:1px solid var(--line);padding-top:16px;font-size:.86rem"><b style="color:var(--text)">[Nombre y apellido]</b><br>[Profesión · ciudad]</p></div>
+      <div class="card"><p style="font-size:2rem;color:var(--accent);opacity:.45;margin:0 0 10px;font-weight:700;line-height:1">"</p><p style="color:var(--text);margin-bottom:20px">Salí con un proyecto armado sobre mi propio trabajo. Al día siguiente lo usé para tres propuestas y no tuve que explicarle nada de nuevo.</p><p style="border-top:1px solid var(--line);padding-top:16px;font-size:.86rem"><b style="color:var(--text)">[Nombre y apellido]</b><br>[Profesión · ciudad]</p></div>
+      <div class="card"><p style="font-size:2rem;color:var(--accent);opacity:.45;margin:0 0 10px;font-weight:700;line-height:1">"</p><p style="color:var(--text);margin-bottom:20px">El módulo de criterio me hizo revisar lo que había subido y saqué dos documentos con datos de clientes que no debían estar ahí.</p><p style="border-top:1px solid var(--line);padding-top:16px;font-size:.86rem"><b style="color:var(--text)">[Nombre y apellido]</b><br>[Profesión · ciudad]</p></div>
+    </div>
+  </div>
+</section>
+
+<!-- 9 · MODALIDAD -->
+<section id="modalidad">
+  <div class="wrap">
+    <div class="sec-head mid">
+      <p class="eye">Nuestra modalidad</p>
+      <h2>En vivo, práctico, y a tu ritmo después.</h2>
+    </div>
+    <div class="grid g3">
+      <div class="card"><span class="n">◍</span><h3>4 horas en vivo por Zoom</h3><p>Esta primera edición es 100% en vivo. Preguntas en el momento, y construimos tu caso mientras avanzamos. Queda grabada por si no puedes asistir.</p></div>
+      <div class="card"><span class="n">◍</span><h3>Llegas listo, no instalando</h3><p>Antes de la clase te mandamos la guía de puesta a punto para Mac y Windows. Nadie gasta tiempo en vivo creando cuentas.</p></div><div class="card"><span class="n">◍</span><h3>Material para siempre</h3><p>Diapositivas, las 7 herramientas y los archivos quedan en tu página de recursos. Vuelves cuando quieras, sin vencimiento.</p></div>
+      <div class="card"><span class="n">◍</span><h3>Acompañamiento 15 días</h3><p>Soporte de un especialista durante los primeros quince días para que no te quedes trabado aplicándolo.</p></div>
+    </div>
+  </div>
+</section>
+
+<!-- 10 · PREGUNTAS -->
+<section class="band" id="preguntas">
+  <div class="wrap">
+    <div class="sec-head mid">
+      <p class="eye">Preguntas frecuentes</p>
+      <h2>Lo que suelen preguntarnos.</h2>
+    </div>
+    <div class="faq">
+      <details class="q"><summary>¿Necesito saber de inteligencia artificial para empezar?<span class="pm">+</span></summary><div class="q-b"><p>No. CONOCE está diseñado para empezar desde cero. Vas a entender <b>cómo funciona</b> Claude mientras aprendes a utilizarlo paso a paso.</p></div></details>
+      <details class="q"><summary>¿Necesito pagar Claude Pro?<span class="pm">+</span></summary><div class="q-b"><p>No. Puedes realizar CONOCE utilizando la <b>versión gratuita</b> de Claude.</p></div></details>
+      <details class="q"><summary>¿Qué voy a poder hacer al terminar?<span class="pm">+</span></summary><div class="q-b"><p>Vas a salir con tu propio Proyecto personalizado en Claude, una visualización creada con tu información, instrucciones listas para usar y herramientas para seguir trabajando por tu cuenta.</p></div></details>
+      <details class="q"><summary>¿El curso es en vivo o grabado?<span class="pm">+</span></summary><div class="q-b"><p>Esta primera edición será <b>100% en vivo</b>, con 4 horas de formación y aplicación práctica. Posteriormente, el programa estará disponible en formato pregrabado.</p></div></details>
+      <details class="q"><summary>¿Cuánto dura?<span class="pm">+</span></summary><div class="q-b"><p>La sesión en vivo dura <b>4 horas</b>, diseñada para llevarte desde los fundamentos hasta la construcción de tu primer Proyecto.</p><p>Antes de la clase te enviamos la <b>guía de puesta a punto</b> —crear tu cuenta e instalar Claude en Mac o Windows— para que llegues listo y no gastemos tiempo en vivo instalando nada. Son unos 45 minutos por tu cuenta, cuando puedas.</p></div></details>
+      <details class="q"><summary>¿En qué fecha y horario es?<span class="pm">+</span></summary><div class="q-b"><p>Las fechas de esta primera edición se confirman al momento de la inscripción. Al inscribirte recibes el enlace de Zoom y el recordatorio.</p><p>Si no puedes asistir en vivo, <b>la sesión queda grabada</b> y el material de la página de recursos es tuyo sin fecha de vencimiento.</p></div></details>
+      <details class="q"><summary>¿Necesito saber programar?<span class="pm">+</span></summary><div class="q-b"><p>No. No necesitas conocimientos de programación ni un perfil técnico. El programa está pensado para profesionales, emprendedores y personas que quieren empezar a utilizar IA de forma práctica.</p></div></details>
+      <details class="q"><summary>Ya uso ChatGPT, ¿este curso me sirve?<span class="pm">+</span></summary><div class="q-b"><p>Sí. No necesitas dejar de usar ChatGPT. Aquí aprenderás a aprovechar Claude, sus Proyectos y Artefactos, mientras desarrollas <b>mejores criterios</b> para trabajar con IA.</p></div></details>
+      <details class="q"><summary>¿Puedo aplicarlo a mi trabajo o negocio?<span class="pm">+</span></summary><div class="q-b"><p>Sí. Puedes construir tu Proyecto alrededor de tu trabajo, emprendimiento, estudios, un proyecto personal o incluso la organización de tu vida.</p></div></details>
+      <details class="q"><summary>¿Qué herramientas me llevo?<span class="pm">+</span></summary><div class="q-b"><p>Te llevas <b>7 herramientas reutilizables</b> para construir mejores instrucciones, refinar resultados, diagnosticar conversaciones, crear tu Proyecto, generar visualizaciones y revisar privacidad.</p></div></details>
+      <details class="q"><summary>¿Puedo tomarlo desde cualquier país?<span class="pm">+</span></summary><div class="q-b"><p>Sí. Al ser una formación online, puedes participar desde cualquier país. Solo debes tener conexión a internet y acceso a Claude.</p></div></details>
+    </div>
+  </div>
+</section>
+
+<!-- 11 · OFERTA FINAL -->
+<section>
+  <div class="wrap">
+    <div class="sec-head mid">
+      <p class="eye">Última llamada</p>
+      <h2>Tú decides. Tu IA ejecuta.</h2>
+      <p class="lede">En cuatro horas dejas de pelearte con las respuestas y empiezas a trabajar con algo que sabe quién eres.</p>
+    </div>
+    <div class="offer">
+      <p class="eye" style="margin-bottom:6px">01 · Conoce</p>
+      <p class="amt"><small>USD</small>55</p>
+      <p class="cop">También disponible en <b style="color:var(--text)">pesos colombianos</b></p>
+      <p class="once">Pago único · sin suscripción</p>
+      <ul>
+        <li><i>✓</i>Acceso al en vivo por Zoom, 4 horas de formación</li>
+        <li><i>✓</i>Guía de puesta a punto para Mac y Windows, antes de la clase</li>
+        <li><i>✓</i>Las 7 herramientas, listas para copiar y usar</li>
+        <li><i>✓</i>Prompts y procesos paso a paso</li>
+        <li><i>✓</i>Material y diapositivas, sin fecha de vencimiento</li>
+        <li><i>✓</i>Soporte de especialista los primeros 15 días</li>
+        <li><i>✓</i>Examen y certificado a tu nombre</li>
+      </ul>
+      <button class="btn" type="button" data-buy>Inscribirme al curso</button>
+      <p class="gtee">✓ Garantía de 7 días — si no es para ti, te devolvemos el dinero</p>
+      <div class="pays"><span class="pay">Tarjeta</span><span class="pay">PSE</span><span class="pay">Nequi</span><span class="pay">Bancolombia</span><span class="pay">PayPal</span></div>
+      <p style="font-size:.78rem;color:var(--faint);margin:16px 0 0">Se puede hacer completo con la cuenta gratuita de Claude.</p>
+    </div>
+  </div>
+</section>
+
+<footer>
+  <div class="wrap">
+    <div class="f-in">
+      <div class="f-brand">
+        <img src="assets/relevo-lockup.png" alt="Relevo">
+        <p>Academia de inteligencia artificial aplicada.<br>Medellín, Colombia.</p>
+      </div>
+      <div class="f-col">
+        <h4>Contacto</h4>
+        <ul>
+          <li><a href="https://relevo.academy">relevo.academy</a></li>
+          <li><a href="mailto:relevoacademy@gmail.com">relevoacademy@gmail.com</a></li>
+          <li><a href="https://instagram.com/relevo.academy">@relevo.academy</a></li>
+        </ul>
+      </div>
+      <div class="f-col">
+        <h4>Legal</h4>
+        <ul>
+          <li><a href="#" data-doc="tyc">Términos y condiciones</a></li>
+          <li><a href="#" data-doc="pol">Política de tratamiento de datos</a></li>
+          <li><a href="#" data-doc="avi">Aviso de privacidad</a></li>
+        </ul>
+      </div>
+    </div>
+    <div class="f-bot">
+      <span>© 2026 Relevo · Todos los derechos reservados</span>
+      <span class="tag">Tú decides. Tu IA ejecuta.</span>
+    </div>
+  </div>
+</footer>
+
+<div class="sheet" id="checkout" role="dialog" aria-modal="true" aria-labelledby="coTitle">
+  <div class="sh-bg" data-x></div>
+  <div class="sh-box co-box">
+    <div class="co-top">
+      <div>
+        <h3 id="coTitle">Confirmar tu compra</h3>
+        <p>01 · CONOCE — Claude: chat, Proyectos y Artefactos</p>
+      </div>
+      <button class="sh-x" type="button" data-x>Cerrar</button>
+    </div>
+
+    <div class="co-body">
+      <div class="co-line"><span>Curso · acceso sin vencimiento</span><b>USD $55</b></div>
+      <div class="co-line"><span>Impuestos</span><span>Se calculan al pagar</span></div>
+      <div class="co-line tot"><span>Total</span><b>USD $55</b></div>
+
+      <form id="coForm">
+        <div class="co-fields">
+          <div>
+            <label for="coName">Nombre completo</label>
+            <input id="coName" type="text" placeholder="Como aparece en tu documento" autocomplete="name" required>
+          </div>
+          <div>
+            <label for="coMail">Correo electrónico</label>
+            <input id="coMail" type="email" placeholder="Aquí te llega tu código de acceso" autocomplete="email" required>
+          </div>
+        </div>
+
+        <div class="co-fields" style="margin-top:20px">
+          <label class="chk">
+            <input type="checkbox" id="chkLegal">
+            <span class="tx">
+              He leído y acepto los <a href="#" data-doc="tyc">Términos y condiciones</a> y autorizo el tratamiento de mis datos personales conforme a la <a href="#" data-doc="pol">Política de tratamiento de datos</a> y al <a href="#" data-doc="avi">Aviso de privacidad</a>.
+              <span class="req" id="reqLegal">Obligatorio</span>
+            </span>
+          </label>
+
+          <label class="chk">
+            <input type="checkbox" id="chkMkt">
+            <span class="tx">
+              Quiero recibir información sobre otros cursos de Relevo.
+              <span class="req">Opcional · puedes darte de baja cuando quieras</span>
+            </span>
+          </label>
+        </div>
+
+        <div class="co-warn">
+          <b>Antes de continuar:</b> este es contenido digital de entrega inmediata. Tienes cinco días hábiles para retractarte, <b>pero si accedes al material dentro de ese plazo el curso se entiende ejecutado</b> y el retracto se agota. Si compras y todavía no entras, la devolución opera sin discusión.
+        </div>
+
+        <button class="btn co-pay" type="submit" id="coPay" disabled>Marca la casilla obligatoria para continuar</button>
+      </form>
+
+      <p class="co-ver">Aceptas los Términos y la Política en su versión del <b>23 de agosto de 2026</b>.<br>Guardamos constancia de esta autorización y puedes pedirnos copia cuando quieras.</p>
+    </div>
+  </div>
+</div>
+
+<div class="sheet" id="legal" role="dialog" aria-modal="true" aria-labelledby="lgTitle">
+  <div class="sh-bg" data-x></div>
+  <div class="sh-box">
+    <div class="sh-top">
+      <div class="sh-hd">
+        <img src="assets/relevo-lockup.png" alt="Relevo">
+        <button class="sh-x" type="button" data-x>Cerrar</button>
+      </div>
+      <div class="sh-tabs" role="tablist" aria-label="Documentos legales">
+        <button class="sh-tab" role="tab" aria-selected="true"  data-d="tyc">Términos y condiciones</button>
+        <button class="sh-tab" role="tab" aria-selected="false" data-d="pol">Política de tratamiento de datos</button>
+        <button class="sh-tab" role="tab" aria-selected="false" data-d="avi">Aviso de privacidad</button>
+      </div>
+    </div>
+    <div class="sh-body">
+
+      <!-- ══ TÉRMINOS Y CONDICIONES ══ -->
+      <div class="doc on" id="tyc" role="tabpanel">
+        <h3 id="lgTitle">Términos y Condiciones</h3>
+        <p class="meta">Vigentes desde el 23 de agosto de 2026 · Conforme a la Ley 1480 de 2011 (Estatuto del Consumidor) y a la Ley 527 de 1999</p>
+
+        <h4><span class="n">1</span>Quiénes somos</h4>
+        <p><b>Relevo — Academia de IA</b>, sociedad en constitución, con domicilio en Medellín, Colombia. Correo de contacto y atención al consumidor: <b>relevoacademy@gmail.com</b>. Sitio web: <b>relevo.academy</b></p>
+        <p>Una vez formalizada la sociedad, estos términos se actualizan con la razón social y el NIT definitivos.</p>
+
+        <h4><span class="n">2</span>Objeto</h4>
+        <p>Estos términos regulan la compra y el uso de los cursos digitales de Relevo. Al comprar declaras que los leíste, los entendiste y los aceptas.</p>
+        <p>Si no estás de acuerdo con alguno, no completes la compra.</p>
+
+        <h4><span class="n">3</span>Qué estás comprando</h4>
+        <p><b>01 · CONOCE — Claude: chat, Proyectos y Artefactos.</b> Formación en línea de <b>4 horas en vivo</b> por videoconferencia. Esta primera edición se dicta en directo; posteriormente el programa estará disponible en formato pregrabado. Incluye:</p>
+        <ul>
+          <li>Acceso a la sesión en vivo de 4 horas por Zoom</li>
+          <li><b>Grabación de la sesión</b>, disponible después de la clase</li>
+          <li>Guía de puesta a punto para Mac y Windows, enviada antes de la clase</li>
+          <li>35 diapositivas de apoyo, una por tema</li>
+          <li>7 herramientas descargables en formato de texto</li>
+          <li>Glosario de términos</li>
+          <li>Los archivos usados durante la clase</li>
+          <li>Examen y certificado de finalización a tu nombre, si lo apruebas</li>
+          <li>Soporte de un especialista durante los <b>quince (15) días calendario</b> siguientes a la sesión, por el canal que se indique al inscribirte</li>
+        </ul>
+        <p><b>Sobre las fechas.</b> La fecha y el horario de la sesión en vivo se informan al momento de la inscripción. Si la sesión debe reprogramarse por causa nuestra, te avisamos con la mayor antelación posible y podrás asistir a la nueva fecha, acceder a la grabación o solicitar la devolución del dinero.</p>
+        <p><b>Si no asistes en vivo</b> no pierdes el curso: la grabación y todo el material quedan disponibles en tu página de recursos, sin fecha de vencimiento.</p>
+        <p><b>El curso es de formación.</b> Salvo el soporte de quince días expresamente incluido, no comprende consultoría, acompañamiento personalizado indefinido ni revisión de tus trabajos.</p>
+
+        <h4><span class="n">4</span>Precio y forma de pago</h4>
+        <p>El precio vigente es <b>USD $55</b>, pago único, con los impuestos aplicables incluidos y discriminados al momento de la compra.</p>
+        <p>El pago se procesa a través de una pasarela de pagos externa. <b>Relevo no almacena datos de tarjetas.</b> Cualquier cargo, comisión o diferencia cambiaria que aplique tu banco o tu medio de pago corre por tu cuenta.</p>
+        <p>Los precios pueden cambiar en cualquier momento. El cambio no afecta compras ya realizadas.</p>
+
+        <h4><span class="n">5</span>Entrega y acceso</h4>
+        <p>Confirmado el pago recibes, en el correo registrado y dentro de las 48 horas hábiles siguientes: <b>la confirmación de tu inscripción, la fecha y el enlace de la sesión en vivo, la guía de puesta a punto y tu código</b> de acceso a la página de recursos.</p>
+        <p>La grabación de la sesión se publica en esa misma página dentro de los <b>cinco (5) días hábiles</b> posteriores a la clase.</p>
+        <p>El acceso es <b>personal e intransferible</b> y no tiene fecha de vencimiento. Compartir tu código con terceros da lugar a la suspensión del acceso sin reembolso.</p>
+        <p>Si no recibes el acceso, escribe a <b>relevoacademy@gmail.com</b> y lo resolvemos.</p>
+
+        <h4><span class="n">6</span>Derecho de retracto</h4>
+        <div class="box">
+          <p>Conforme al <b>artículo 47 de la Ley 1480 de 2011</b>, en las ventas a distancia tienes derecho a retractarte dentro de los <b>cinco (5) días hábiles</b> siguientes a la compra, sin necesidad de justificarlo.</p>
+        </div>
+        <p>Para ejercerlo, escribe a <b>relevoacademy@gmail.com</b> desde el correo con el que compraste, indicando que deseas retractarte. Devolvemos el dinero por el mismo medio de pago dentro de los <b>treinta (30) días calendario</b> siguientes a tu solicitud.</p>
+        <p><b>Importante y te lo decimos antes de que compres:</b> si dentro de esos cinco días hábiles <b>asistes a la sesión en vivo o accedes a la grabación</b>, la formación se entiende ejecutada y el derecho de retracto se agota. Descargar el material de la página de recursos produce el mismo efecto. Al completar la compra aceptas expresamente que la prestación comienza con la entrega del material de puesta a punto.</p>
+        <p>Si compraste y todavía no asististe ni entraste al material, el retracto opera sin discusión.</p>
+
+        <h4><span class="n">7</span>Reversión del pago</h4>
+        <p>Conforme al <b>artículo 51 de la Ley 1480 de 2011</b>, puedes solicitar la reversión del pago cuando seas víctima de fraude, cuando el producto no corresponda a lo solicitado, o cuando el producto no sea recibido. La solicitud se presenta dentro de los cinco (5) días hábiles siguientes al hecho, ante nosotros y ante tu emisor de pago.</p>
+
+        <h4><span class="n">8</span>Licencia de uso y propiedad intelectual</h4>
+        <p>Todo el contenido del curso —clases, diapositivas, prompts, plantillas, documentos y materiales— es propiedad de Relevo y está protegido por la <b>Ley 23 de 1982</b> y la <b>Decisión Andina 351 de 1993</b>.</p>
+        <p>Al comprar obtienes una <b>licencia personal, intransferible y no exclusiva</b> de uso. Con esa licencia:</p>
+        <ul>
+          <li><b>Puedes</b> usar los prompts y plantillas en tu trabajo, sin límite, incluso con fines comerciales</li>
+          <li><b>Puedes</b> adaptarlos a tu caso y conservarlos indefinidamente</li>
+          <li><b>No puedes</b> revender, redistribuir, publicar ni ceder el material</li>
+          <li><b>No puedes</b> compartir tu código de acceso</li>
+          <li><b>No puedes</b> grabar, descargar ni reproducir las clases fuera de la plataforma</li>
+          <li><b>No puedes</b> usar el material para dictar formación propia sobre el mismo contenido</li>
+        </ul>
+        <p><b>Lo que tú produzcas aplicando lo aprendido es enteramente tuyo</b> — tu proyecto, tus documentos, tus visualizaciones. No reclamamos ningún derecho sobre eso.</p>
+
+        <h4><span class="n">9</span>Tus obligaciones</h4>
+        <ul>
+          <li>Entregar información veraz al momento de comprar</li>
+          <li>Cuidar tu código de acceso y no compartirlo</li>
+          <li>Usar el material conforme a la ley y a estos términos</li>
+          <li>Ser responsable de la información que decidas cargar en herramientas de terceros</li>
+        </ul>
+
+        <h4><span class="n">10</span>Alcance y límites de responsabilidad</h4>
+        <div class="box">
+          <p><b>La inteligencia artificial se equivoca.</b> Claude puede entregar información incorrecta, incompleta o inventada, incluso cuando suena segura. Verifica todo resultado antes de usarlo.</p>
+        </div>
+        <p>Relevo entrega formación. <b>No garantiza resultados económicos, laborales ni comerciales</b> derivados del curso, porque dependen de factores que no controlamos.</p>
+        <p>El contenido <b>no constituye asesoría legal, médica, financiera, contable, tributaria ni profesional de ninguna clase.</b> Si tu decisión requiere un profesional, consúltalo.</p>
+        <p>Relevo no responde por daños derivados del uso que hagas de la información obtenida a través de herramientas de inteligencia artificial, ni por las decisiones que tomes con base en ella.</p>
+
+        <h4><span class="n">11</span>Servicios de terceros</h4>
+        <p>El curso enseña a usar <b>Claude, un producto de Anthropic PBC</b>, empresa ajena a Relevo. No controlamos su disponibilidad, sus precios, sus límites de uso, sus políticas ni sus cambios.</p>
+        <p>El uso de Claude se rige por los términos y la política de privacidad de Anthropic, que aceptas directamente con ellos al crear tu cuenta. Si Anthropic modifica el producto, actualizamos el material del curso en un plazo razonable, sin que ello constituya incumplimiento de nuestra parte.</p>
+
+        <h4><span class="n">12</span>Peticiones, quejas y reclamos</h4>
+        <p>Escribe a <b>relevoacademy@gmail.com</b>. Respondemos dentro de los <b>quince (15) días hábiles</b> siguientes.</p>
+        <p>Si no quedas conforme, puedes acudir a la <b>Superintendencia de Industria y Comercio</b>, autoridad competente en materia de protección al consumidor en Colombia.</p>
+
+        <h4><span class="n">13</span>Modificaciones</h4>
+        <p>Podemos actualizar estos términos. La versión vigente es siempre la publicada en esta página, con su fecha. Los cambios no afectan compras ya realizadas, que se rigen por los términos vigentes al momento de la compra.</p>
+
+        <h4><span class="n">14</span>Ley aplicable y jurisdicción</h4>
+        <p>Estos términos se rigen por las leyes de la <b>República de Colombia</b>. Cualquier controversia se someterá a los jueces competentes de la ciudad de <b>Medellín</b>, sin perjuicio de los derechos que la ley reconoce al consumidor.</p>
+
+        <p class="sign">Relevo — Academia de IA · Medellín, Colombia · relevoacademy@gmail.com<br>Última actualización: 23 de agosto de 2026</p>
+      </div>
+
+      <!-- ══ POLÍTICA DE TRATAMIENTO ══ -->
+      <div class="doc" id="pol" role="tabpanel">
+        <h3>Política de Tratamiento de Datos Personales</h3>
+        <p class="meta">Vigente desde el 23 de agosto de 2026 · Conforme a la Ley 1581 de 2012 y al Decreto 1377 de 2013</p>
+
+        <h4><span class="n">1</span>Responsable del tratamiento</h4>
+        <p><b>Relevo — Academia de IA</b>, sociedad en constitución.<br>
+        Domicilio: Medellín, Colombia.<br>
+        Correo: <b>relevoacademy@gmail.com</b><br>
+        Sitio web: <b>relevo.academy</b></p>
+        <p>Al formalizarse la sociedad, esta política se actualiza con la razón social y el NIT.</p>
+
+        <h4><span class="n">2</span>Qué datos tratamos</h4>
+        <p>Únicamente los necesarios para venderte el curso y darte acceso:</p>
+        <ul>
+          <li><b>Identificación y contacto:</b> nombre y correo electrónico</li>
+          <li><b>Facturación:</b> los datos que exija la normativa tributaria</li>
+          <li><b>Transacción:</b> qué compraste, cuándo y por qué medio</li>
+        </ul>
+        <p><b>No tratamos datos sensibles</b> — origen racial o étnico, orientación política, convicciones religiosas o filosóficas, pertenencia a sindicatos u organizaciones sociales, datos de salud, vida sexual o datos biométricos. Si nos los envías por iniciativa propia, los eliminamos.</p>
+        <p><b>No dirigimos nuestros servicios a menores de edad</b> ni recogemos sus datos de forma deliberada.</p>
+        <p><b>Los datos de pago no pasan por nosotros.</b> Los procesa directamente la pasarela; nosotros solo recibimos la confirmación de que la transacción se aprobó.</p>
+
+        <h4><span class="n">3</span>Finalidades</h4>
+        <ul>
+          <li>Entregarte el acceso al curso que compraste</li>
+          <li>Emitir tu factura y cumplir obligaciones contables y tributarias</li>
+          <li>Responder tus consultas, quejas y reclamos</li>
+          <li>Informarte de actualizaciones del material que ya compraste</li>
+          <li>Enviarte información sobre otros cursos, <b>solo si lo autorizas por separado</b>, con opción de darte de baja en cualquier momento</li>
+        </ul>
+        <p><b>No vendemos, alquilamos ni cedemos tus datos a terceros con fines comerciales.</b></p>
+
+        <h4><span class="n">4</span>Con quién los compartimos</h4>
+        <p>Solo con los proveedores necesarios para prestar el servicio, y solo con lo que cada uno necesita: la pasarela de pagos, el proveedor de correo, el servicio de alojamiento web y el contador para efectos tributarios. Cada uno está obligado a tratarlos únicamente para la finalidad contratada.</p>
+
+        <h4><span class="n">5</span>Derechos del titular</h4>
+        <p>Conforme al artículo 8 de la Ley 1581 de 2012, tienes derecho a:</p>
+        <ul>
+          <li><b>Conocer, actualizar y rectificar</b> tus datos, gratuitamente</li>
+          <li><b>Solicitar prueba</b> de la autorización que otorgaste</li>
+          <li><b>Ser informado</b> del uso que se ha dado a tus datos</li>
+          <li><b>Presentar quejas</b> ante la Superintendencia de Industria y Comercio</li>
+          <li><b>Revocar la autorización y solicitar la supresión</b> de tus datos</li>
+          <li><b>Acceder gratuitamente</b> a tus datos que hayan sido objeto de tratamiento</li>
+        </ul>
+        <p>Sobre la supresión: si revocas la autorización pierdes el acceso al curso, y hay datos de facturación que estamos obligados a conservar por norma contable y tributaria aunque lo solicites. Te lo decimos de frente para que no sea una sorpresa.</p>
+
+        <h4><span class="n">6</span>Cómo ejercer tus derechos</h4>
+        <p>Escribe a <b>relevoacademy@gmail.com</b> indicando tu nombre, el correo con el que compraste y qué necesitas. No se exige ningún formato especial.</p>
+        <ul>
+          <li><b>Consultas:</b> respondemos en máximo <b>diez (10) días hábiles</b>. Si no alcanzamos, te informamos el motivo y la fecha en que responderemos, sin exceder cinco (5) días hábiles adicionales.</li>
+          <li><b>Reclamos:</b> respondemos en máximo <b>quince (15) días hábiles</b>. Si necesitamos más, te informamos el motivo y la nueva fecha, sin exceder ocho (8) días hábiles adicionales.</li>
+        </ul>
+        <p>El área responsable de atender consultas y reclamos es quien administra el correo indicado.</p>
+
+        <h4><span class="n">7</span>Autorización</h4>
+        <p>Antes de recoger cualquier dato solicitamos autorización <b>previa, expresa e informada</b>, mediante una casilla que debes marcar tú. Nunca viene marcada por defecto. Conservamos constancia de la autorización y puedes solicitar copia cuando quieras.</p>
+
+        <h4><span class="n">8</span>Seguridad y conservación</h4>
+        <p>Adoptamos medidas razonables de carácter técnico, humano y administrativo para proteger tus datos frente a acceso no autorizado, pérdida, uso indebido o alteración. Solo accede a ellos el personal que lo requiere para su función.</p>
+        <p>Conservamos tus datos mientras mantengas acceso al curso y, posteriormente, solo por el término que la ley exija para los soportes contables y tributarios.</p>
+
+        <h4><span class="n">9</span>Vigencia</h4>
+        <p>Esta política rige desde el <b>23 de agosto de 2026</b> y se mantiene vigente mientras operen las bases de datos de Relevo.</p>
+        <p>Si la modificamos de forma sustancial te avisamos por correo antes de que aplique. La fecha indicada arriba corresponde siempre a la versión vigente.</p>
+
+        <p class="sign">Relevo — Academia de IA · Medellín, Colombia · relevoacademy@gmail.com<br>Última actualización: 23 de agosto de 2026</p>
+      </div>
+
+      <!-- ══ AVISO DE PRIVACIDAD ══ -->
+      <div class="doc" id="avi" role="tabpanel">
+        <h3>Aviso de Privacidad</h3>
+        <p class="meta">Conforme a los artículos 14 y 15 del Decreto 1377 de 2013 · 23 de agosto de 2026</p>
+
+        <div class="box">
+          <p>Este aviso es el resumen que la ley exige entregarte <b>en el momento en que recogemos tus datos</b>. El detalle completo está en la Política de Tratamiento de Datos, en la pestaña anterior.</p>
+        </div>
+
+        <h4><span class="n">1</span>Responsable</h4>
+        <p><b>Relevo — Academia de IA</b>, sociedad en constitución, con domicilio en Medellín, Colombia.<br>
+        Correo: <b>relevoacademy@gmail.com</b> · Sitio web: <b>relevo.academy</b></p>
+
+        <h4><span class="n">2</span>Tratamiento y finalidad</h4>
+        <p>Recogemos tu <b>nombre, correo electrónico y datos de facturación</b> con el fin de:</p>
+        <ul>
+          <li>Entregarte el acceso al curso que compraste</li>
+          <li>Emitir la factura y cumplir obligaciones contables y tributarias</li>
+          <li>Atender tus consultas, quejas y reclamos</li>
+          <li>Informarte de actualizaciones del material adquirido</li>
+          <li>Enviarte información sobre otros cursos, únicamente si lo autorizas de forma separada</li>
+        </ul>
+        <p>No tratamos datos sensibles ni de menores de edad. No vendemos ni cedemos tus datos a terceros con fines comerciales.</p>
+
+        <h4><span class="n">3</span>Tus derechos</h4>
+        <p>Como titular puedes <b>conocer, actualizar, rectificar y suprimir</b> tus datos, solicitar prueba de la autorización otorgada, ser informado del uso dado a tus datos, presentar quejas ante la Superintendencia de Industria y Comercio y <b>revocar la autorización</b> en cualquier momento.</p>
+
+        <h4><span class="n">4</span>Cómo ejercerlos</h4>
+        <p>Escribe a <b>relevoacademy@gmail.com</b>. Respondemos consultas en máximo diez (10) días hábiles y reclamos en máximo quince (15) días hábiles, conforme a la ley.</p>
+
+        <h4><span class="n">5</span>Dónde consultar la política completa</h4>
+        <p>La Política de Tratamiento de Datos Personales está disponible de forma permanente en <b>relevo.academy</b>, en el pie de página de este sitio y en la pestaña anterior de esta misma ventana.</p>
+        <p>Cualquier cambio sustancial se comunicará por correo electrónico y se publicará en el mismo lugar antes de su entrada en vigencia.</p>
+
+        <p class="sign">Relevo — Academia de IA · Medellín, Colombia · relevoacademy@gmail.com<br>Última actualización: 23 de agosto de 2026</p>
+      </div>
+
+    </div>
+  </div>
+</div>
+
+<script>
+(function(){
+  var nav=document.getElementById('nav');
+  addEventListener('scroll',function(){nav.classList.toggle('stuck',scrollY>10)},{passive:true});
+
+  var io=new IntersectionObserver(function(es){
+    es.forEach(function(e){if(e.isIntersecting){e.target.classList.add('in');io.unobserve(e.target)}});
+  },{threshold:.1});
+  document.querySelectorAll('.sec-head,.card,.tool,.offer,.cert-img').forEach(function(el){el.classList.add('rise');io.observe(el)});
+
+  /* Carrusel */
+  var rail=document.getElementById('rail');
+  if(rail){
+    var cards=[].slice.call(rail.querySelectorAll('.mcard'));
+    var dots=document.getElementById('ddots');
+    var prev=document.getElementById('dprev'),next=document.getElementById('dnext');
+    var soft=matchMedia('(prefers-reduced-motion:reduce)').matches;
+    dots.innerHTML=cards.map(function(_,i){return '<button class="ddot" data-i="'+i+'" aria-label="Modulo '+(i+1)+'"></button>'}).join('');
+    var dd=[].slice.call(dots.children);
+    function paint(){
+      var r=rail.getBoundingClientRect(),mid=r.left+r.width/2,best=0,bd=1e9;
+      cards.forEach(function(c,i){
+        var b=c.getBoundingClientRect(),cc=b.left+b.width/2,d=(cc-mid)/r.width;
+        if(!soft){
+          var rot=Math.max(-1,Math.min(1,d))*-19,sc=1-Math.min(Math.abs(d),.6)*.16;
+          c.style.transform='rotateY('+rot.toFixed(2)+'deg) scale('+sc.toFixed(3)+')';
+          c.style.opacity=(1-Math.min(Math.abs(d),.75)*.55).toFixed(3);
+        }
+        var ad=Math.abs(cc-mid); if(ad<bd){bd=ad;best=i}
+        c.classList.toggle('mid2',ad<b.width*.42);
+      });
+      dd.forEach(function(d,i){d.setAttribute('aria-current',i===best)});
+      prev.disabled=rail.scrollLeft<8;
+      next.disabled=rail.scrollLeft>rail.scrollWidth-rail.clientWidth-8;
+      return best;
+    }
+    function go(i){i=Math.max(0,Math.min(cards.length-1,i));
+      var c=cards[i],r=rail.getBoundingClientRect(),b=c.getBoundingClientRect();
+      rail.scrollBy({left:(b.left+b.width/2)-(r.left+r.width/2),behavior:'smooth'});}
+    var tk;rail.addEventListener('scroll',function(){if(tk)return;tk=requestAnimationFrame(function(){paint();tk=null})},{passive:true});
+    addEventListener('resize',paint,{passive:true});
+    prev.addEventListener('click',function(){go(paint()-1)});
+    next.addEventListener('click',function(){go(paint()+1)});
+    dots.addEventListener('click',function(e){var d=e.target.closest('.ddot');if(d)go(+d.dataset.i)});
+    rail.addEventListener('keydown',function(e){
+      if(e.key==='ArrowLeft'){e.preventDefault();go(paint()-1)}
+      if(e.key==='ArrowRight'){e.preventDefault();go(paint()+1)}});
+    paint();
+  }
+
+  /* Compra */
+  var co=document.getElementById('checkout'),chkLegal=document.getElementById('chkLegal');
+  var coPay=document.getElementById('coPay'),reqLegal=document.getElementById('reqLegal'),coBack=null;
+  function coState(){var ok=chkLegal.checked;coPay.disabled=!ok;
+    coPay.textContent=ok?'Pagar USD $55':'Marca la casilla obligatoria para continuar';
+    reqLegal.classList.toggle('on',ok);reqLegal.textContent=ok?'Autorización otorgada':'Obligatorio';}
+  chkLegal.addEventListener('change',coState);
+  document.addEventListener('click',function(e){
+    if(e.target.closest('[data-buy]')){coBack=document.activeElement;co.classList.add('on');
+      document.body.style.overflow='hidden';co.querySelector('.sh-x').focus();coState();}});
+  co.addEventListener('click',function(e){if(e.target.closest('[data-x]')){
+    co.classList.remove('on');document.body.style.overflow='';if(coBack)coBack.focus();}});
+  document.getElementById('coForm').addEventListener('submit',function(e){
+    e.preventDefault();if(!chkLegal.checked)return;
+    coPay.textContent='Aquí conecta la pasarela de pagos';coPay.disabled=true;});
+
+  /* Documentos legales */
+  var sh=document.getElementById('legal');
+  var shTabs=[].slice.call(sh.querySelectorAll('.sh-tab'));
+  var docs=[].slice.call(sh.querySelectorAll('.doc'));
+  var lastFocus=null;
+  function showDoc(id){shTabs.forEach(function(t){t.setAttribute('aria-selected',t.dataset.d===id)});
+    docs.forEach(function(d){d.classList.toggle('on',d.id===id)});sh.querySelector('.sh-box').scrollTop=0;}
+  document.addEventListener('click',function(e){
+    var a=e.target.closest('[data-doc]');
+    if(a){e.preventDefault();lastFocus=document.activeElement;showDoc(a.dataset.doc);
+      sh.classList.add('on');document.body.style.overflow='hidden';sh.querySelector('.sh-x').focus();return}
+    if(e.target.closest('#legal [data-x]')){sh.classList.remove('on');
+      if(!co.classList.contains('on'))document.body.style.overflow='';if(lastFocus)lastFocus.focus();}
+    var t=e.target.closest('.sh-tab'); if(t)showDoc(t.dataset.d);
+  });
+  document.addEventListener('keydown',function(e){
+    if(e.key!=='Escape')return;
+    if(sh.classList.contains('on')){sh.classList.remove('on');if(!co.classList.contains('on'))document.body.style.overflow='';return}
+    if(co.classList.contains('on')){co.classList.remove('on');document.body.style.overflow='';}
+  });
+})();
+</script>
+</body></html>
