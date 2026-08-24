@@ -1,7 +1,7 @@
 # 🚀 Landing — Curso de Claude · Relevo
 
 ![Relevo](https://img.shields.io/badge/Relevo-Academia%20de%20IA-1FE6AB?labelColor=050505)
-![Estado](https://img.shields.io/badge/Estado-pendientes%20antes%20de%20publicar-E8A33D?labelColor=050505)
+![Estado](https://img.shields.io/badge/Estado-en%20preparaci%C3%B3n-E8A33D?labelColor=050505)
 ![HTML](https://img.shields.io/badge/HTML5-est%C3%A1tico-E34F26?logo=html5&logoColor=white)
 ![Sin dependencias](https://img.shields.io/badge/Dependencias-ninguna-6E7376?labelColor=050505)
 ![Peso](https://img.shields.io/badge/P%C3%A1gina-71%20KB-1FE6AB?labelColor=050505)
@@ -24,7 +24,7 @@
 - [🚀 Correr localmente](#-correr-localmente)
 - [📁 Estructura](#-estructura)
 - [🖼️ Sobre las fotos](#️-sobre-las-fotos)
-- [⚠️ Pendientes antes de publicar](#️-pendientes-antes-de-publicar)
+- [⚠️ Estado](#️-estado)
 - [🔗 Piezas relacionadas](#-piezas-relacionadas)
 
 ---
@@ -139,7 +139,6 @@ python -m http.server 8841
 | `index.html` | La landing completa |
 | `assets/relevo-lockup.png` | Logo de la marca |
 | `assets/alumnos/` | 7 retratos en WebP, 28 KB en total |
-| `PENDIENTES.md` | Lo que falta antes de publicar |
 
 ---
 
@@ -149,26 +148,19 @@ Los siete retratos de la portada son **generados con IA**, no fotografías de pe
 
 Del original de 1254×1254 px se recorta el rostro y se exporta a WebP de 160 px: **28 KB las siete, contra 14,5 MB de los originales**. En pantallas de menos de 420 px se muestran solo cinco, para que la fila no apriete el texto.
 
-**No se pusieron rostros en los testimonios.** Esos textos todavía son de maquetación, y ponerles cara haría la fabricación más convincente — que es exactamente lo contrario de lo que se busca.
+**Los testimonios no llevan rostro.** Una cita solo lleva cara cuando es de una persona real que dio su permiso. Un retrato generado junto a un testimonio le presta una credibilidad que la cita todavía no se ganó.
 
 ---
 
-## ⚠️ Pendientes antes de publicar
+## ⚠️ Estado
 
-Todo lo de acá está marcado en la página con un aviso ámbar visible. Detalle completo en [`PENDIENTES.md`](PENDIENTES.md).
+**Esta página todavía no está lista para vender.** Hay contenido de maquetación
+pendiente de reemplazo y el checkout no está conectado a una pasarela.
 
-| # | Pendiente | Estado |
-|---|-----------|--------|
-| 1 | **Testimonios reales** | 🔴 Los actuales son inventados — no pueden publicarse |
-| 2 | Fecha y horario de la edición | 🟡 Se confirman al inscribirse |
-| 3 | **Pasarela de pago** | 🔴 El checkout valida y ahí se detiene |
-| 4 | Precio en pesos colombianos | 🟡 Sin cifra, a propósito |
-| 5 | Garantía de 7 días | 🟡 Anunciada — confirmar cómo se honra |
-| 6 | Duración contra el guion real | 🟡 Verificar las 4 horas |
-| 7 | Revisión legal de términos | 🟡 Antes de cobrar |
-| — | ~~Fotos de alumnos en portada~~ | ✅ Puestas — aviso retirado |
+Los puntos abiertos están marcados **dentro de la propia página** con un aviso
+ámbar visible, y el detalle se lleva aparte del repositorio.
 
-> Los dos marcados en rojo son **bloqueantes**. Testimonios inventados y una pasarela que no cobra son, cada uno por su lado, razón suficiente para no publicar.
+> Mientras haya un aviso ámbar en pantalla, la URL no se comparte para vender.
 
 ---
 
