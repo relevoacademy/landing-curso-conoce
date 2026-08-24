@@ -159,14 +159,14 @@ Todo lo de acá está marcado en la página con un aviso ámbar visible. Detalle
 
 | # | Pendiente | Estado |
 |---|-----------|--------|
-| 1 | Fotos de alumnos en portada | ✅ Puestas |
-| 2 | **Testimonios reales** | 🔴 Los actuales son inventados — no pueden publicarse |
-| 3 | Fecha y horario de la edición | 🟡 Se confirman al inscribirse |
-| 4 | **Pasarela de pago** | 🔴 El checkout valida y ahí se detiene |
-| 5 | Precio en pesos colombianos | 🟡 Sin cifra, a propósito |
-| 6 | Garantía de 7 días | 🟡 Anunciada — confirmar cómo se honra |
-| 7 | Duración contra el guion real | 🟡 Verificar las 4 horas |
-| 8 | Revisión legal de términos | 🟡 Antes de cobrar |
+| 1 | **Testimonios reales** | 🔴 Los actuales son inventados — no pueden publicarse |
+| 2 | Fecha y horario de la edición | 🟡 Se confirman al inscribirse |
+| 3 | **Pasarela de pago** | 🔴 El checkout valida y ahí se detiene |
+| 4 | Precio en pesos colombianos | 🟡 Sin cifra, a propósito |
+| 5 | Garantía de 7 días | 🟡 Anunciada — confirmar cómo se honra |
+| 6 | Duración contra el guion real | 🟡 Verificar las 4 horas |
+| 7 | Revisión legal de términos | 🟡 Antes de cobrar |
+| — | ~~Fotos de alumnos en portada~~ | ✅ Puestas — aviso retirado |
 
 > Los dos marcados en rojo son **bloqueantes**. Testimonios inventados y una pasarela que no cobra son, cada uno por su lado, razón suficiente para no publicar.
 

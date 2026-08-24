@@ -3,24 +3,13 @@
 Todo lo de acá está marcado en la página con un aviso ámbar visible.
 **Los avisos se quitan cuando se resuelve el punto, no antes.**
 
----
-
-## 1 · Fotos de alumnos en la portada
-
-**Estado:** 5 círculos con la palabra "foto".
-**Dónde:** portada, `.faces`.
-
-Cuando estén las imágenes: subirlas a `assets/alumnos/` y reemplazar los
-`<span class="face">foto</span>` por `<img>`. Después borrar el aviso
-`◍ Fotos reales de alumnos y cifra verificable — pendientes`.
-
-**No agregar una cifra de alumnos.** Si más adelante hay una que se pueda
-sostener con un registro real, va al lado de las fotos. Mientras tanto queda
-"Primera edición en vivo · Cupos limitados", que es cierto.
+> Las 7 fotos de portada ya están puestas y su aviso se retiró.
+> La regla que sigue viva: **no se agrega una cifra de alumnos** hasta que haya
+> uno real que se pueda sostener con un registro.
 
 ---
 
-## 2 · Testimonios
+## 1 · Testimonios
 
 **Estado:** tres tarjetas de maquetación con `[Nombre y apellido]`.
 **Dónde:** sección `#testimonios`.
@@ -34,7 +23,7 @@ hay, **la sección se borra completa** — es preferible a inventarla.
 
 ---
 
-## 3 · Fechas y horario
+## 2 · Fechas y horario
 
 **Estado:** la página dice que se confirman al inscribirse.
 **Dónde:** pregunta frecuente "¿En qué fecha y horario es?".
@@ -44,7 +33,7 @@ convierte más que "cupos limitados", y hace real la escasez.
 
 ---
 
-## 4 · Pasarela de pago
+## 3 · Pasarela de pago
 
 **Estado:** el checkout valida las casillas y ahí se detiene.
 **Dónde:** hoja de compra, botón `.co-pay`.
@@ -56,7 +45,7 @@ existe es la forma más rápida de perder una venta hecha.
 
 ---
 
-## 5 · Precio en pesos
+## 4 · Precio en pesos
 
 **Estado:** la página dice "también disponible en pesos colombianos" sin cifra.
 **Dónde:** sección `#precio`.
@@ -66,7 +55,7 @@ está ahora es la opción honesta.
 
 ---
 
-## 6 · Garantía de 7 días
+## 5 · Garantía de 7 días
 
 **Estado:** anunciada dos veces en la página.
 **Dónde:** oferta y cierre.
@@ -77,7 +66,7 @@ Una garantía anunciada y no cumplida hace más daño que no ofrecerla.
 
 ---
 
-## 7 · Duración: verificar
+## 6 · Duración: verificar
 
 **Estado:** la página dice 4 horas, y los módulos suman 215 minutos.
 
@@ -91,7 +80,7 @@ dice "4 horas".
 
 ---
 
-## 8 · Enlaces legales
+## 7 · Enlaces legales
 
 **Estado:** términos, privacidad y tratamiento de datos abren en una hoja
 dentro de la misma página, con texto ya redactado.
