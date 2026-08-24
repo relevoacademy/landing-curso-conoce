@@ -1,86 +1,184 @@
-# Landing — Curso de Claude · Relevo
+# 🚀 Landing — Curso de Claude · Relevo
 
-Página de venta del **01 CONOCE — Claude: chat, Proyectos y Artefactos**.
-Sitio estático, sin build ni dependencias.
+![Relevo](https://img.shields.io/badge/Relevo-Academia%20de%20IA-1FE6AB?labelColor=050505)
+![Estado](https://img.shields.io/badge/Estado-pendientes%20antes%20de%20publicar-E8A33D?labelColor=050505)
+![HTML](https://img.shields.io/badge/HTML5-est%C3%A1tico-E34F26?logo=html5&logoColor=white)
+![Sin dependencias](https://img.shields.io/badge/Dependencias-ninguna-6E7376?labelColor=050505)
+![Peso](https://img.shields.io/badge/P%C3%A1gina-71%20KB-1FE6AB?labelColor=050505)
+![Vercel](https://img.shields.io/badge/Deploy-Vercel-000000?logo=vercel&logoColor=white)
+![Hecho en Colombia](https://img.shields.io/badge/Hecho%20en-Colombia%20🇨🇴-FCD116)
 
+> Página de venta del **01 CONOCE**, el primer curso de la ruta de Relevo. Una sola página, sin build, sin dependencias y **sin una sola cifra que no se pueda sostener**.
+
+**[🌐 relevo.academy](https://relevo.academy)** · **[📸 @relevo.academy](https://instagram.com/relevo.academy)** · **[✉️ relevoacademy@gmail.com](mailto:relevoacademy@gmail.com)**
+
+---
+
+## 📑 Tabla de contenidos
+
+- [✨ Qué es](#-qué-es)
+- [🧱 Cómo está armada](#-cómo-está-armada)
+- [🎯 El argumento de venta](#-el-argumento-de-venta)
+- [🛡️ Reglas de contenido](#️-reglas-de-contenido)
+- [🎨 Identidad](#-identidad)
+- [🚀 Correr localmente](#-correr-localmente)
+- [📁 Estructura](#-estructura)
+- [🖼️ Sobre las fotos](#️-sobre-las-fotos)
+- [⚠️ Pendientes antes de publicar](#️-pendientes-antes-de-publicar)
+- [🔗 Piezas relacionadas](#-piezas-relacionadas)
+
+---
+
+## ✨ Qué es
+
+Una landing de venta larga, de las que se leen de arriba abajo. El visitante llega sin saber qué es Claude y tiene que salir sabiendo tres cosas: **qué se lleva**, **por qué le sirve** y **qué pasa si no le gusta**.
+
+Todo el contenido vive en un solo `index.html`. No hay framework, no hay paso de compilación y no hay nada que instalar para trabajar en ella.
+
+---
+
+## 🧱 Cómo está armada
+
+```mermaid
+flowchart TD
+  P["🏠 Portada<br/><sub>promesa + prueba social</sub>"] --> H["🧰 Herramientas<br/><sub>qué te llevas puesto</sub>"]
+  H --> C["🎁 Lo que vas a construir<br/><sub>4 entregables concretos</sub>"]
+  C --> Z["🌱 Empezamos desde cero<br/><sub>derriba: no sé nada</sub>"]
+  Z --> T["📚 Temario<br/><sub>5 módulos con duración</sub>"]
+  T --> PR["💳 Precio<br/><sub>oferta + medios + garantía</sub>"]
+  PR --> CE["🎓 Certificado<br/><sub>por qué vale algo</sub>"]
+  CE --> TE["💬 Testimonios"]
+  TE --> M["📡 Modalidad"]
+  M --> F["❓ Preguntas<br/><sub>11 objeciones</sub>"]
+  F --> FIN["✅ Cierre<br/><sub>último CTA + garantía</sub>"]
+
+  P -.->|CTA| PR
+  T -.->|CTA| PR
+  FIN -.->|CTA| PR
 ```
-index.html          la landing completa
-assets/             logo de la marca
-PENDIENTES.md       lo que falta antes de publicar
-```
 
-## Desplegar
+**Decisiones clave:**
 
-Subir la carpeta tal cual. En Vercel: framework **Other**, sin build command,
-output directory la raíz. Todas las rutas son relativas — no hay nada que
-apunte fuera de esta carpeta.
+- **El CTA aparece 5 veces**: barra fija, portada, después del temario, en el precio y en el cierre. El del temario es deliberado — es el punto donde la persona ya sabe qué incluye y todavía no ha visto el precio.
+- **La garantía se presenta dos veces**, junto al precio y en el cierre. Una garantía que solo aparece una vez se pierde en el scroll.
+- **Las objeciones van en orden de aparición mental**, no en orden temático: primero "no sé nada", después "cuánto dura", después "ya uso ChatGPT", y al final "desde qué país".
+- **La grilla usa `grid-auto-rows: 1fr`.** En CSS Grid cada fila se mide por su cuenta, así que un bloque de 4 tarjetas que cae 3+1 deja la última más baja. Esto lo iguala.
 
-Para verla en local:
+---
 
-```bash
-python -m http.server 8840
-```
+## 🎯 El argumento de venta
 
-## Identidad
+| Bloque | Qué resuelve |
+|--------|--------------|
+| 🏠 **Portada** | Promesa concreta: *sales con algo tuyo funcionando* |
+| 🧰 **Herramientas** | Combate el "y esto para qué me sirve después" |
+| 🎁 **Lo que vas a construir** | 4 entregables, no apuntes |
+| 🌱 **Desde cero** | Sin conocimientos, sin cuenta paga, sin perfil técnico |
+| 📚 **Temario** | Transparencia total: cada módulo con su duración |
+| 💳 **Precio** | Pago único, medios locales, garantía de 7 días |
+| 🎓 **Certificado** | *Se aprueba, no se regala* — hay examen |
+| ❓ **Preguntas** | 11 objeciones, desplegables |
 
-Sigue el `RELEVO_MANUAL DE IDENTIDAD`, igual que los talleres
-[`perfil-forense`](https://github.com/relevoacademy/perfil-forense) y `modulo-conoce`.
+---
+
+## 🛡️ Reglas de contenido
+
+**No se publica una cifra que no se pueda verificar.**
+
+Esta página **no dice cuántos alumnos hay**, porque es la primera edición y no habría cómo sostenerlo si alguien pregunta. En su lugar usa una escasez que sí es real: *primera edición en vivo, cupos limitados*.
+
+Tampoco usa contador regresivo, ni descuento inventado, ni campaña de temporada. Un contador que se reinicia solo es mentira, y una vez que el visitante lo nota **todo lo demás de la página queda bajo sospecha**.
+
+Los números de la página tienen que coincidir con el [taller que se entrega](https://github.com/relevoacademy/modulo-conoce):
+
+| Dato | Valor |
+|------|-------|
+| Duración | 4 horas en vivo |
+| Módulos | 5 (01 a 05) |
+| Herramientas | 7 |
+| Certificado | Con examen aprobado |
+
+> Si cambia el taller, **la landing cambia en el mismo commit**. El certificado también dice "4 horas" — son tres piezas que se mueven juntas.
+
+---
+
+## 🎨 Identidad
+
+Sigue el `RELEVO_MANUAL DE IDENTIDAD`, igual que las otras piezas de la marca.
 
 | Token | Valor |
-|---|---|
+|-------|-------|
 | Negro | `#050505` |
 | Carbón | `#131415` |
 | Turquesa | `#1FE6AB` |
 | Gris | `#A7ABAF` |
 | Títulos y cuerpo | Instrument Sans |
 
-**El ámbar `#E8A33D` es solo para advertencias**, y en esta página se usa
-únicamente en los avisos de contenido pendiente.
+**El ámbar `#E8A33D` es solo para advertencias.** En esta página se usa únicamente en los avisos de contenido pendiente — y esos avisos son visibles a propósito, para que nadie publique sin resolverlos.
 
-> El manual trae dos erratas: el hex del gris figura como `#67A6A3` pero sus
-> valores RGB (167, 171, 175) dan `#A7ABAF`; y la tipografía aparece como
-> "Instrumental Sans" cuando la real es **Instrument Sans**.
+> ⚠️ El manual trae **dos erratas**. El hex del gris figura como `#67A6A3` pero sus propios valores RGB (167, 171, 175) dan `#A7ABAF`. Y la tipografía aparece como *"Instrumental Sans"* cuando la real es **Instrument Sans**.
 
-## Estructura de la página
+---
 
-| # | Sección | Qué hace en el argumento de venta |
-|---|---|---|
-| 1 | Portada | Promesa + prueba social + primer CTA |
-| 2 | Herramientas | Qué te llevas puesto: 7 prompts reutilizables |
-| 3 | Lo que vas a construir | 4 entregables concretos, no apuntes |
-| 4 | Empezamos desde cero | Derriba la objeción de "no sé nada" |
-| 5 | Temario | 5 módulos con duración + CTA |
-| 6 | Precio | Oferta, medios de pago, garantía |
-| 7 | Certificado | Por qué vale algo (hay examen) |
-| 8 | Testimonios | Prueba social **— pendiente** |
-| 9 | Modalidad | Cómo funciona en la práctica |
-| 10 | Preguntas | 11 objeciones, en orden de aparición |
-| 11 | Cierre | Último CTA + garantía repetida |
+## 🚀 Correr localmente
 
-El CTA aparece **5 veces**: portada, temario, precio, cierre y la barra
-superior fija.
+```bash
+python -m http.server 8841
+```
 
-## Reglas de contenido
+**Desplegar:** subir la carpeta tal cual. En Vercel, framework **Other**, sin build command, output directory la raíz. Todas las rutas son relativas — no hay nada que apunte fuera de esta carpeta.
 
-**No se publican cifras que no se puedan verificar.** Esta página no dice
-cuántos alumnos hay porque es la primera edición y no habría cómo sostenerlo.
-En su lugar usa una escasez que sí es real: *primera edición en vivo, cupos
-limitados*.
+> ⚠️ Conectar desde la cuenta de Vercel **de Relevo**. Verificar la cuenta activa antes de importar, no después.
 
-Los números de la página tienen que coincidir con el taller que se entrega
-(`modulo-conoce`):
+---
 
-| Dato | Valor |
-|---|---|
-| Duración | 4 horas en vivo |
-| Herramientas | 7 |
-| Módulos | 5 (00 a 04) |
-| Certificado | Con examen aprobado |
+## 📁 Estructura
 
-Si cambia el taller, **hay que cambiar la landing en el mismo commit**.
+| Ruta | Contenido |
+|------|-----------|
+| `index.html` | La landing completa |
+| `assets/relevo-lockup.png` | Logo de la marca |
+| `assets/alumnos/` | 7 retratos en WebP, 28 KB en total |
+| `PENDIENTES.md` | Lo que falta antes de publicar |
 
-## Checkout
+---
 
-El botón abre una hoja con el resumen de compra y las casillas de
-aceptación de términos y tratamiento de datos. **Todavía no está conectado a
-una pasarela** — ver `PENDIENTES.md`.
+## 🖼️ Sobre las fotos
+
+Los siete retratos de la portada son **generados con IA**, no fotografías de personas reales. Se eligieron sobre fondo oscuro para que se asienten en el negro de la marca sin recorte visible.
+
+Del original de 1254×1254 px se recorta el rostro y se exporta a WebP de 160 px: **28 KB las siete, contra 14,5 MB de los originales**. En pantallas de menos de 420 px se muestran solo cinco, para que la fila no apriete el texto.
+
+**No se pusieron rostros en los testimonios.** Esos textos todavía son de maquetación, y ponerles cara haría la fabricación más convincente — que es exactamente lo contrario de lo que se busca.
+
+---
+
+## ⚠️ Pendientes antes de publicar
+
+Todo lo de acá está marcado en la página con un aviso ámbar visible. Detalle completo en [`PENDIENTES.md`](PENDIENTES.md).
+
+| # | Pendiente | Estado |
+|---|-----------|--------|
+| 1 | Fotos de alumnos en portada | ✅ Puestas |
+| 2 | **Testimonios reales** | 🔴 Los actuales son inventados — no pueden publicarse |
+| 3 | Fecha y horario de la edición | 🟡 Se confirman al inscribirse |
+| 4 | **Pasarela de pago** | 🔴 El checkout valida y ahí se detiene |
+| 5 | Precio en pesos colombianos | 🟡 Sin cifra, a propósito |
+| 6 | Garantía de 7 días | 🟡 Anunciada — confirmar cómo se honra |
+| 7 | Duración contra el guion real | 🟡 Verificar las 4 horas |
+| 8 | Revisión legal de términos | 🟡 Antes de cobrar |
+
+> Los dos marcados en rojo son **bloqueantes**. Testimonios inventados y una pasarela que no cobra son, cada uno por su lado, razón suficiente para no publicar.
+
+---
+
+## 🔗 Piezas relacionadas
+
+| Repositorio | Qué es |
+|-------------|--------|
+| [`modulo-conoce`](https://github.com/relevoacademy/modulo-conoce) | El taller que esta página vende |
+| [`perfil-forense`](https://github.com/relevoacademy/perfil-forense) | Taller de diagnóstico DISC, cortesía del Cripto Latin Fest |
+
+---
+
+Hecho con 💜 en Colombia 🇨🇴 · **Relevo — IA que trabaja contigo**
