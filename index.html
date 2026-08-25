@@ -3,11 +3,11 @@
 <head>
 <meta charset="utf-8">
 <meta name="viewport" content="width=device-width,initial-scale=1">
-<meta name="description" content="Curso online de Claude en espanol. Cuatro horas en vivo: chat, Proyectos y Artefactos. Sales con tu propio Proyecto funcionando. Relevo, academia de IA.">
+<meta name="description" content="Curso online de Claude en espanol. Tres horas en vivo: chat, Proyectos y Artefactos. Sales con tu propio Proyecto funcionando. Relevo, academia de IA.">
 <meta name="theme-color" content="#050505">
 <meta property="og:type" content="website">
 <meta property="og:title" content="Curso de Claude - Relevo">
-<meta property="og:description" content="Aprende a usar Claude desde cero y termina con algo tuyo funcionando. Cuatro horas en vivo.">
+<meta property="og:description" content="Aprende a usar Claude desde cero y termina con algo tuyo funcionando. Tres horas en vivo.">
 <meta property="og:locale" content="es_CO">
 <meta name="twitter:card" content="summary_large_image">
 <title>Curso de Claude Relevo</title>
@@ -170,6 +170,30 @@ footer a:hover{color:var(--accent-hi)}
 @media(max-width:820px){.f-in{grid-template-columns:1fr 1fr;gap:38px}.f-brand{grid-column:1 / -1}}
 @media(max-width:520px){.f-in{grid-template-columns:1fr}.f-bot{flex-direction:column;align-items:flex-start;gap:10px}}
 
+
+.pasos{display:grid;grid-template-columns:repeat(auto-fit,minmax(272px,1fr));gap:14px;grid-auto-rows:1fr}
+.paso{background:var(--surface);border:1px solid var(--line);border-radius:var(--r);padding:32px 30px;display:flex;flex-direction:column;position:relative;overflow:hidden;transition:border-color var(--fast) var(--ease),transform var(--fast) var(--ease)}
+.paso:hover{border-color:var(--aline);transform:translateY(-2px)}
+.paso::after{content:attr(data-n);position:absolute;right:16px;top:2px;font-size:5.4rem;font-weight:700;line-height:1;color:var(--accent);opacity:.07;letter-spacing:-.05em}
+.paso .pk{font-size:.66rem;font-weight:600;letter-spacing:.19em;text-transform:uppercase;color:var(--accent);margin:0 0 12px}
+.paso h3{font-size:1.42rem;font-weight:700;letter-spacing:-.028em;margin:0 0 10px}
+.paso p{font-size:.94rem;color:var(--dim);margin:0 0 18px;flex:1;line-height:1.62}
+.paso .pt{font-size:.78rem;font-weight:600;color:var(--faint);border-top:1px solid var(--line);padding-top:15px;margin:0}
+.paso .pt b{color:var(--accent)}
+.ruta{display:flex;align-items:center;justify-content:center;gap:14px;flex-wrap:wrap;margin:0 0 40px;font-size:.9rem;color:var(--faint)}
+.ruta b{color:var(--text);font-weight:700}
+.ruta i{color:var(--accent);font-style:normal}
+
+.hero-offer{display:inline-flex;align-items:baseline;gap:12px;margin:0 0 8px;flex-wrap:wrap;justify-content:center}
+.hero-offer .was{font-size:1.15rem;color:var(--faint);text-decoration:line-through;text-decoration-thickness:2px}
+.hero-offer .now{font-size:2.5rem;font-weight:700;letter-spacing:-.04em;line-height:1}
+.hero-offer .now small{font-size:1rem;color:var(--dim);vertical-align:super;margin-right:3px;font-weight:600}
+.hero-offer .off{background:var(--accent);color:var(--bg);border-radius:var(--pill);padding:5px 13px;font-size:.76rem;font-weight:700;letter-spacing:.03em}
+.micro{font-size:.85rem;color:var(--faint);margin:14px 0 0}
+.micro b{color:var(--dim);font-weight:600}
+.cupos{display:inline-flex;align-items:center;gap:9px;background:var(--soft);border:1px solid var(--aline);border-radius:var(--pill);padding:8px 18px;font-size:.82rem;font-weight:600;color:var(--accent);margin:10px 0 0}
+.was-line{font-size:1rem;color:var(--faint);text-decoration:line-through;text-decoration-thickness:2px;margin:0 0 2px}
+.off-tag{display:inline-block;background:var(--accent);color:var(--bg);border-radius:var(--pill);padding:5px 14px;font-size:.75rem;font-weight:700;letter-spacing:.04em;margin:0 0 10px}
 .rise{opacity:0;transform:translateY(20px);transition:opacity var(--slow) var(--ease),transform var(--slow) var(--ease)}
 .rise.in{opacity:1;transform:none}
 @media(prefers-reduced-motion:reduce){*{animation-duration:.01ms!important;transition-duration:.01ms!important}.rise{opacity:1;transform:none}.mcard{transform:none!important;opacity:1!important}}
@@ -279,8 +303,15 @@ footer a:hover{color:var(--accent-hi)}
   <div class="wrap hero-in">
     <span class="claude-tag"><i></i>Curso online de Claude</span>
     <h1>Aprende a usar Claude desde cero — y termina con <em>algo tuyo</em> funcionando.</h1>
-    <p class="lede">4 horas en vivo. Chat, Proyectos y Artefactos. Sales sabiendo qué le estás pidiendo — y cuándo se equivoca.</p>
-    <button class="btn big" type="button" data-buy>Inscribirme al curso</button>
+    <p class="lede"><b style="color:var(--text)">3 horas en vivo. 3 pasos.</b> De no saber nada a tener tu propio sistema en Claude funcionando — sin programar.</p>
+
+    <p class="hero-offer">
+      <span class="was">USD 110</span>
+      <span class="off">50% de lanzamiento</span>
+      <span class="now"><small>USD</small>55</span>
+    </p>
+    <button class="btn big" type="button" data-buy>Quiero aprender Claude por USD 55 →</button>
+    <p class="micro"><b>Pago único</b> · material sin vencimiento · <b>garantía de 7 días</b></p>
 
     <div class="proof">
       <div class="faces">
@@ -292,14 +323,48 @@ footer a:hover{color:var(--accent-hi)}
         <img class="face" src="assets/alumnos/alumno-6.webp" alt="" width="44" height="44" loading="eager" decoding="async">
         <img class="face" src="assets/alumnos/alumno-7.webp" alt="" width="44" height="44" loading="eager" decoding="async">
       </div>
-      <span class="proof-tx"><b>Primera edición en vivo</b>Cupos limitados</span>
+      <span class="proof-tx"><b>Primera edición en vivo</b>50 cupos</span>
     </div>
     
   </div>
 </header>
 
 <!-- 2 · HERRAMIENTAS -->
-<section class="band" id="herramientas">
+
+<section class="band" id="metodo">
+  <div class="wrap">
+    <div class="sec-head mid">
+      <p class="eye">El método</p>
+      <h2>3 horas. 3 pasos. Un sistema que te queda.</h2>
+      <p class="lede">No es una lista de funciones. Es un camino: primero entiendes con qué estás trabajando, después construyes algo tuyo, y al final lo dejas listo para usarlo mañana.</p>
+    </div>
+
+    <p class="ruta"><b>ENTIENDE</b> <i>→</i> <b>CONSTRUYE</b> <i>→</i> <b>APLICA</b></p>
+
+    <div class="pasos">
+      <div class="paso" data-n="1">
+        <p class="pk">Paso 1</p>
+        <h3>Entiende</h3>
+        <p>Qué es Claude de verdad y por qué se equivoca. Cómo se le pide bien, cómo se corrige lo que te devolvió, y cómo darte cuenta de que el chat ya se te quedó corto.</p>
+        <p class="pt">Primera hora · <b>Módulos 01 y 02</b></p>
+      </div>
+      <div class="paso" data-n="2">
+        <p class="pk">Paso 2</p>
+        <h3>Construye</h3>
+        <p>Armas tu Proyecto personalizado, con tu contexto y tu forma de trabajar adentro. Sales de esta hora con algo tuyo funcionando, no con teoría de cómo se haría.</p>
+        <p class="pt">Segunda hora · <b>Módulo 03</b></p>
+      </div>
+      <div class="paso" data-n="3">
+        <p class="pk">Paso 3</p>
+        <h3>Aplica</h3>
+        <p>Ese Proyecto produce tu primera visualización, y aprendes a verificar lo que te entrega antes de usarlo. Te vas sabiendo repetirlo por tu cuenta.</p>
+        <p class="pt">Tercera hora · <b>Módulos 04 y 05</b></p>
+      </div>
+    </div>
+  </div>
+</section>
+
+<section id="herramientas">
   <div class="wrap">
     <div class="sec-head mid">
       <p class="eye">Todas en un solo curso</p>
@@ -355,18 +420,18 @@ footer a:hover{color:var(--accent-hi)}
 <section id="temario">
   <div class="wrap" style="overflow:visible">
     <div class="sec-head mid">
-      <p class="eye">4 horas en vivo · 7 herramientas · 100% práctico</p>
-      <h2>Cinco módulos, una sola cosa construida.</h2>
+      <p class="eye">3 horas · 3 pasos · 7 herramientas</p>
+      <h2>Cinco módulos dentro de los tres pasos.</h2>
       <p class="lede">Cada módulo cierra con un límite y con una prueba que haces tú. Al final de cada uno sabes si te funcionó — no tienes que creernos.</p>
     </div>
     <div class="deck">
 <div class="rail" id="rail" tabindex="0" aria-label="Módulos">
 <span class="pad"></span>
-<article class="mcard"><span class="k">01</span><h3>Cómo funciona Claude</h3><p class="dur">20 min</p><ul><li>Qué es un modelo de lenguaje y qué no es</li><li class="hi">Escribe tan bien que puede escribir muy bien algo falso</li><li>Los tres motivos por los que se equivoca</li><li class="hi">La regla de la casa: tú decides, tu IA ejecuta</li></ul></article>
-<article class="mcard"><span class="k">02</span><h3>Chat e instrucciones</h3><p class="dur">45 min</p><ul><li>La interfaz en cinco minutos</li><li class="hi">Anatomía de una instrucción: contexto, tarea, formato y restricciones</li><li>Iterar: por qué la primera respuesta no es la buena</li><li>Archivos e imágenes</li><li>Cuándo el chat ya no es la herramienta</li></ul></article>
-<article class="mcard"><span class="k">03</span><h3>Proyectos personalizados</h3><p class="dur">70 min</p><ul><li>Dejar de explicar quién eres en cada conversación</li><li>Cómo se crea uno, paso a paso</li><li>Las instrucciones y el conocimiento del proyecto</li><li class="hi">La entrevista arma tu Proyecto con tus respuestas</li><li>La prueba: tu Proyecto contra un chat vacío</li></ul></article>
-<article class="mcard"><span class="k">04</span><h3>Artefactos y visualizaciones</h3><p class="dur">50 min</p><ul><li>Pedir una cosa terminada, no una respuesta</li><li>Estados, procesos, líneas de tiempo, comparaciones</li><li class="hi">El super prompt que genera tu visualización</li><li>Dónde queda, cómo lo descargas, qué pasa si lo publicas</li></ul></article>
-<article class="mcard"><span class="k">05</span><h3>Criterio, privacidad y verificación</h3><p class="dur">30 min</p><ul><li class="hi">Cómo suena una respuesta inventada</li><li>Verificar antes de usar</li><li>Qué información no subes nunca</li><li class="hi">Qué no se delega jamás: decisiones, juicio, responsabilidad</li></ul></article>
+<article class="mcard"><span class="k">01</span><h3>Cómo funciona Claude</h3><p class="dur">Paso 1 · Entiende · 15 min</p><ul><li>Qué es un modelo de lenguaje y qué no es</li><li class="hi">Escribe tan bien que puede escribir muy bien algo falso</li><li>Los tres motivos por los que se equivoca</li><li class="hi">La regla de la casa: tú decides, tu IA ejecuta</li></ul></article>
+<article class="mcard"><span class="k">02</span><h3>Chat e instrucciones</h3><p class="dur">Paso 1 · Entiende · 45 min</p><ul><li>La interfaz en cinco minutos</li><li class="hi">Anatomía de una instrucción: contexto, tarea, formato y restricciones</li><li>Iterar: por qué la primera respuesta no es la buena</li><li>Archivos e imágenes</li><li>Cuándo el chat ya no es la herramienta</li></ul></article>
+<article class="mcard"><span class="k">03</span><h3>Proyectos personalizados</h3><p class="dur">Paso 2 · Construye · 60 min</p><ul><li>Dejar de explicar quién eres en cada conversación</li><li>Cómo se crea uno, paso a paso</li><li>Las instrucciones y el conocimiento del proyecto</li><li class="hi">La entrevista arma tu Proyecto con tus respuestas</li><li>La prueba: tu Proyecto contra un chat vacío</li></ul></article>
+<article class="mcard"><span class="k">04</span><h3>Artefactos y visualizaciones</h3><p class="dur">Paso 3 · Aplica · 40 min</p><ul><li>Pedir una cosa terminada, no una respuesta</li><li>Estados, procesos, líneas de tiempo, comparaciones</li><li class="hi">El super prompt que genera tu visualización</li><li>Dónde queda, cómo lo descargas, qué pasa si lo publicas</li></ul></article>
+<article class="mcard"><span class="k">05</span><h3>Criterio, privacidad y verificación</h3><p class="dur">Paso 3 · Aplica · 20 min</p><ul><li class="hi">Cómo suena una respuesta inventada</li><li>Verificar antes de usar</li><li>Qué información no subes nunca</li><li class="hi">Qué no se delega jamás: decisiones, juicio, responsabilidad</li></ul></article>
 <span class="pad"></span>
 </div>
 <div class="deck-nav"><button class="dbtn" id="dprev" aria-label="Anterior"><svg width="17" height="17" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2.3"><path d="M15 18l-6-6 6-6" stroke-linecap="round" stroke-linejoin="round"/></svg></button><div class="ddots" id="ddots"></div><button class="dbtn" id="dnext" aria-label="Siguiente"><svg width="17" height="17" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2.3"><path d="M9 18l6-6-6-6" stroke-linecap="round" stroke-linejoin="round"/></svg></button></div>
@@ -385,11 +450,14 @@ footer a:hover{color:var(--accent-hi)}
     </div>
     <div class="offer">
       <p class="eye" style="margin-bottom:6px">01 · Conoce</p>
+      <p class="was-line">USD 110</p>
+      <span class="off-tag">50% de lanzamiento</span>
       <p class="amt"><small>USD</small>55</p>
       <p class="cop">También disponible en <b style="color:var(--text)">pesos colombianos</b></p>
       <p class="once">Pago único · sin suscripción</p>
+      <p class="cupos">◍ Precio de primera edición · primeros 50 inscritos</p>
       <ul>
-        <li><i>✓</i>Acceso al en vivo por Zoom, 4 horas de formación</li>
+        <li><i>✓</i>Acceso al en vivo por Zoom, 3 horas de formación</li>
         <li><i>✓</i>Guía de puesta a punto para Mac y Windows, antes de la clase</li>
         <li><i>✓</i>Las 7 herramientas, listas para copiar y usar</li>
         <li><i>✓</i>Prompts y procesos paso a paso</li>
@@ -419,7 +487,7 @@ footer a:hover{color:var(--accent-hi)}
       <p class="ln">Certificado de finalización</p>
       <h4>01 · CONOCE</h4>
       <p class="nm">Claude: chat, Proyectos y Artefactos</p>
-      <p class="fo">Relevo — Academia de IA · 4 horas · Examen aprobado</p>
+      <p class="fo">Relevo — Academia de IA · 3 horas · Examen aprobado</p>
     </div>
   </div>
 </section>
@@ -448,7 +516,7 @@ footer a:hover{color:var(--accent-hi)}
       <h2>En vivo, práctico, y a tu ritmo después.</h2>
     </div>
     <div class="grid g3">
-      <div class="card"><span class="n">◍</span><h3>4 horas en vivo por Zoom</h3><p>Esta primera edición es 100% en vivo. Preguntas en el momento, y construimos tu caso mientras avanzamos. Queda grabada por si no puedes asistir.</p></div>
+      <div class="card"><span class="n">◍</span><h3>3 horas en vivo por Zoom</h3><p>Esta primera edición es 100% en vivo. Preguntas en el momento, y construimos tu caso mientras avanzamos. Queda grabada por si no puedes asistir.</p></div>
       <div class="card"><span class="n">◍</span><h3>Llegas listo, no instalando</h3><p>Antes de la clase te mandamos la guía de puesta a punto para Mac y Windows. Nadie gasta tiempo en vivo creando cuentas.</p></div><div class="card"><span class="n">◍</span><h3>Material para siempre</h3><p>Diapositivas, las 7 herramientas y los archivos quedan en tu página de recursos. Vuelves cuando quieras, sin vencimiento.</p></div>
       <div class="card"><span class="n">◍</span><h3>Acompañamiento 15 días</h3><p>Soporte de un especialista durante los primeros quince días para que no te quedes trabado aplicándolo.</p></div>
     </div>
@@ -466,8 +534,8 @@ footer a:hover{color:var(--accent-hi)}
       <details class="q"><summary>¿Necesito saber de inteligencia artificial para empezar?<span class="pm">+</span></summary><div class="q-b"><p>No. CONOCE está diseñado para empezar desde cero. Vas a entender <b>cómo funciona</b> Claude mientras aprendes a utilizarlo paso a paso.</p></div></details>
       <details class="q"><summary>¿Necesito pagar Claude Pro?<span class="pm">+</span></summary><div class="q-b"><p>No. Puedes realizar CONOCE utilizando la <b>versión gratuita</b> de Claude.</p></div></details>
       <details class="q"><summary>¿Qué voy a poder hacer al terminar?<span class="pm">+</span></summary><div class="q-b"><p>Vas a salir con tu propio Proyecto personalizado en Claude, una visualización creada con tu información, instrucciones listas para usar y herramientas para seguir trabajando por tu cuenta.</p></div></details>
-      <details class="q"><summary>¿El curso es en vivo o grabado?<span class="pm">+</span></summary><div class="q-b"><p>Esta primera edición será <b>100% en vivo</b>, con 4 horas de formación y aplicación práctica. Posteriormente, el programa estará disponible en formato pregrabado.</p></div></details>
-      <details class="q"><summary>¿Cuánto dura?<span class="pm">+</span></summary><div class="q-b"><p>La sesión en vivo dura <b>4 horas</b>, diseñada para llevarte desde los fundamentos hasta la construcción de tu primer Proyecto.</p><p>Antes de la clase te enviamos la <b>guía de puesta a punto</b> —crear tu cuenta e instalar Claude en Mac o Windows— para que llegues listo y no gastemos tiempo en vivo instalando nada. Son unos 45 minutos por tu cuenta, cuando puedas.</p></div></details>
+      <details class="q"><summary>¿El curso es en vivo o grabado?<span class="pm">+</span></summary><div class="q-b"><p>Esta primera edición será <b>100% en vivo</b>, con 3 horas de formación y aplicación práctica. Posteriormente, el programa estará disponible en formato pregrabado.</p></div></details>
+      <details class="q"><summary>¿Cuánto dura?<span class="pm">+</span></summary><div class="q-b"><p>La sesión en vivo dura <b>3 horas</b>, diseñada para llevarte desde los fundamentos hasta la construcción de tu primer Proyecto.</p><p>Antes de la clase te enviamos la <b>guía de puesta a punto</b> —crear tu cuenta e instalar Claude en Mac o Windows— para que llegues listo y no gastemos tiempo en vivo instalando nada. Son unos 45 minutos por tu cuenta, cuando puedas.</p></div></details>
       <details class="q"><summary>¿En qué fecha y horario es?<span class="pm">+</span></summary><div class="q-b"><p>Las fechas de esta primera edición se confirman al momento de la inscripción. Al inscribirte recibes el enlace de Zoom y el recordatorio.</p><p>Si no puedes asistir en vivo, <b>la sesión queda grabada</b> y el material de la página de recursos es tuyo sin fecha de vencimiento.</p></div></details>
       <details class="q"><summary>¿Necesito saber programar?<span class="pm">+</span></summary><div class="q-b"><p>No. No necesitas conocimientos de programación ni un perfil técnico. El programa está pensado para profesionales, emprendedores y personas que quieren empezar a utilizar IA de forma práctica.</p></div></details>
       <details class="q"><summary>Ya uso ChatGPT, ¿este curso me sirve?<span class="pm">+</span></summary><div class="q-b"><p>Sí. No necesitas dejar de usar ChatGPT. Aquí aprenderás a aprovechar Claude, sus Proyectos y Artefactos, mientras desarrollas <b>mejores criterios</b> para trabajar con IA.</p></div></details>
@@ -488,11 +556,14 @@ footer a:hover{color:var(--accent-hi)}
     </div>
     <div class="offer">
       <p class="eye" style="margin-bottom:6px">01 · Conoce</p>
+      <p class="was-line">USD 110</p>
+      <span class="off-tag">50% de lanzamiento</span>
       <p class="amt"><small>USD</small>55</p>
       <p class="cop">También disponible en <b style="color:var(--text)">pesos colombianos</b></p>
       <p class="once">Pago único · sin suscripción</p>
+      <p class="cupos">◍ Precio de primera edición · primeros 50 inscritos</p>
       <ul>
-        <li><i>✓</i>Acceso al en vivo por Zoom, 4 horas de formación</li>
+        <li><i>✓</i>Acceso al en vivo por Zoom, 3 horas de formación</li>
         <li><i>✓</i>Guía de puesta a punto para Mac y Windows, antes de la clase</li>
         <li><i>✓</i>Las 7 herramientas, listas para copiar y usar</li>
         <li><i>✓</i>Prompts y procesos paso a paso</li>
@@ -627,9 +698,9 @@ footer a:hover{color:var(--accent-hi)}
         <p>Si no estás de acuerdo con alguno, no completes la compra.</p>
 
         <h4><span class="n">3</span>Qué estás comprando</h4>
-        <p><b>01 · CONOCE — Claude: chat, Proyectos y Artefactos.</b> Formación en línea de <b>4 horas en vivo</b> por videoconferencia. Esta primera edición se dicta en directo; posteriormente el programa estará disponible en formato pregrabado. Incluye:</p>
+        <p><b>01 · CONOCE — Claude: chat, Proyectos y Artefactos.</b> Formación en línea de <b>3 horas en vivo</b> por videoconferencia. Esta primera edición se dicta en directo; posteriormente el programa estará disponible en formato pregrabado. Incluye:</p>
         <ul>
-          <li>Acceso a la sesión en vivo de 4 horas por Zoom</li>
+          <li>Acceso a la sesión en vivo de 3 horas por Zoom</li>
           <li><b>Grabación de la sesión</b>, disponible después de la clase</li>
           <li>Guía de puesta a punto para Mac y Windows, enviada antes de la clase</li>
           <li>35 diapositivas de apoyo, una por tema</li>
@@ -644,7 +715,9 @@ footer a:hover{color:var(--accent-hi)}
         <p><b>El curso es de formación.</b> Salvo el soporte de quince días expresamente incluido, no comprende consultoría, acompañamiento personalizado indefinido ni revisión de tus trabajos.</p>
 
         <h4><span class="n">4</span>Precio y forma de pago</h4>
-        <p>El precio vigente es <b>USD $55</b>, pago único, con los impuestos aplicables incluidos y discriminados al momento de la compra.</p>
+        <p>El <b>precio regular</b> del curso es de <b>USD $110</b>, pago único.</p>
+        <p>Para la <b>primera edición</b> aplica un <b>precio de lanzamiento de USD $55</b>, equivalente al 50% de descuento. Esta promoción está limitada a los <b>primeros cincuenta (50) inscritos</b>. Alcanzado ese número, el curso vuelve a su precio regular.</p>
+        <p>Los impuestos aplicables se incluyen y discriminan al momento de la compra.</p>
         <p>El pago se procesa a través de una pasarela de pagos externa. <b>Relevo no almacena datos de tarjetas.</b> Cualquier cargo, comisión o diferencia cambiaria que aplique tu banco o tu medio de pago corre por tu cuenta.</p>
         <p>Los precios pueden cambiar en cualquier momento. El cambio no afecta compras ya realizadas.</p>
 

@@ -41,7 +41,8 @@ Todo el contenido vive en un solo `index.html`. No hay framework, no hay paso de
 
 ```mermaid
 flowchart TD
-  P["🏠 Portada<br/><sub>promesa + prueba social</sub>"] --> H["🧰 Herramientas<br/><sub>qué te llevas puesto</sub>"]
+  P["🏠 Portada<br/><sub>promesa + oferta + prueba social</sub>"] --> ME["🧭 Método 3 pasos<br/><sub>Entiende → Construye → Aplica</sub>"]
+  ME --> H["🧰 Herramientas<br/><sub>qué te llevas puesto</sub>"]
   H --> C["🎁 Lo que vas a construir<br/><sub>4 entregables concretos</sub>"]
   C --> Z["🌱 Empezamos desde cero<br/><sub>derriba: no sé nada</sub>"]
   Z --> T["📚 Temario<br/><sub>5 módulos con duración</sub>"]
@@ -62,6 +63,7 @@ flowchart TD
 - **El CTA aparece 5 veces**: barra fija, portada, después del temario, en el precio y en el cierre. El del temario es deliberado — es el punto donde la persona ya sabe qué incluye y todavía no ha visto el precio.
 - **La garantía se presenta dos veces**, junto al precio y en el cierre. Una garantía que solo aparece una vez se pierde en el scroll.
 - **Las objeciones van en orden de aparición mental**, no en orden temático: primero "no sé nada", después "cuánto dura", después "ya uso ChatGPT", y al final "desde qué país".
+- **Los tres pasos cierran en 60 · 60 · 60.** Los cinco módulos se reagruparon para que cada paso dure exactamente una hora: Entiende (15+45), Construye (60), Aplica (40+20). Antes sumaban 215 minutos y no coincidían con ninguna promesa de la página.
 - **La grilla usa `grid-auto-rows: 1fr`.** En CSS Grid cada fila se mide por su cuenta, así que un bloque de 4 tarjetas que cae 3+1 deja la última más baja. Esto lo iguala.
 
 ---
@@ -70,12 +72,13 @@ flowchart TD
 
 | Bloque | Qué resuelve |
 |--------|--------------|
-| 🏠 **Portada** | Promesa concreta: *sales con algo tuyo funcionando* |
+| 🏠 **Portada** | Promesa + oferta visible sin scroll: ~~110~~ → 55 |
+| 🧭 **Método** | *3 horas, 3 pasos* — se entiende sin leer el temario |
 | 🧰 **Herramientas** | Combate el "y esto para qué me sirve después" |
 | 🎁 **Lo que vas a construir** | 4 entregables, no apuntes |
 | 🌱 **Desde cero** | Sin conocimientos, sin cuenta paga, sin perfil técnico |
 | 📚 **Temario** | Transparencia total: cada módulo con su duración |
-| 💳 **Precio** | Pago único, medios locales, garantía de 7 días |
+| 💳 **Precio** | ~~USD 110~~ → **USD 55** de lanzamiento, 50 cupos, garantía de 7 días |
 | 🎓 **Certificado** | *Se aprueba, no se regala* — hay examen |
 | ❓ **Preguntas** | 11 objeciones, desplegables |
 
@@ -93,12 +96,24 @@ Los números de la página tienen que coincidir con el [taller que se entrega](h
 
 | Dato | Valor |
 |------|-------|
-| Duración | 4 horas en vivo |
-| Módulos | 5 (01 a 05) |
+| Duración | **3 horas en vivo** |
+| Método | **3 pasos: Entiende → Construye → Aplica** |
+| Módulos | 5 (01 a 05), repartidos en los 3 pasos |
 | Herramientas | 7 |
+| Precio regular | USD 110 |
+| Precio de lanzamiento | USD 55 — **primeros 50 inscritos** |
+| Garantía | 7 días |
 | Certificado | Con examen aprobado |
 
-> Si cambia el taller, **la landing cambia en el mismo commit**. El certificado también dice "4 horas" — son tres piezas que se mueven juntas.
+> Si cambia el taller, **la landing cambia en el mismo commit**. El certificado también lleva la duración — son tres piezas que se mueven juntas.
+
+### 💰 La regla del precio de lanzamiento
+
+USD 55 es una **promoción real sobre un precio real**: el curso vale USD 110 y así se venderá a partir de la segunda edición.
+
+Para que el tachado sea legítimo —y no un descuento ficticio, prohibido por el Estatuto del Consumidor— la promoción **tiene que terminar**. Su condición es **los primeros 50 inscritos**, y está escrita en la página y en el artículo 4 de los Términos.
+
+> **Alcanzados los 50, el precio sube.** Si no sube, el USD 110 nunca fue real y toda la página queda bajo sospecha. Es la misma trampa del *75% OFF permanente* que se le critica a la competencia.
 
 ---
 
