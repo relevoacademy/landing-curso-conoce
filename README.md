@@ -79,6 +79,7 @@ flowchart TD
 | 🌱 **Desde cero** | Sin conocimientos, sin cuenta paga, sin perfil técnico |
 | 📚 **Temario** | Transparencia total: cada módulo con su duración |
 | 💳 **Precio** | ~~USD 110~~ → **USD 55** de lanzamiento, 50 cupos, garantía de 7 días |
+| 🧾 **Medios de pago** | Los que Hotmart ofrece en Colombia — verificados, no supuestos |
 | 🎓 **Certificado** | *Se aprueba, no se regala* — hay examen |
 | ❓ **Preguntas** | 11 objeciones, desplegables |
 
@@ -169,13 +170,20 @@ Del original de 1254×1254 px se recorta el rostro y se exporta a WebP de 160 px
 
 ## ⚠️ Estado
 
-**Esta página todavía no está lista para vender.** Hay contenido de maquetación
-pendiente de reemplazo y el checkout no está conectado a una pasarela.
+**La página no tiene ningún placeholder.** Se quitó todo lo que fuera contenido
+de relleno, incluida la sección de testimonios: los que había eran inventados,
+con nombre, edad, profesión y ciudad de personas que no existen.
 
-Los puntos abiertos están marcados **dentro de la propia página** con un aviso
-ámbar visible, y el detalle se lleva aparte del repositorio.
+> Un testimonio con nombre propio que nadie dijo no es maquetación: es publicidad
+> engañosa. La sección vuelve cuando haya testimonios reales con permiso.
 
-> Mientras haya un aviso ámbar en pantalla, la URL no se comparte para vender.
+Queda **una sola cosa pendiente**, y no se ve en la página:
+
+| Pendiente | Dónde |
+|---|---|
+| Enlace de pago de Hotmart | `const CTA_URL` — una sola constante alimenta los 5 botones |
+
+Mientras `CTA_URL` sea `"#"`, los botones no llevan a ninguna parte.
 
 ---
 
