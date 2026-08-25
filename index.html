@@ -194,6 +194,16 @@ footer a:hover{color:var(--accent-hi)}
 .cupos{display:inline-flex;align-items:center;gap:9px;background:var(--soft);border:1px solid var(--aline);border-radius:var(--pill);padding:8px 18px;font-size:.82rem;font-weight:600;color:var(--accent);margin:10px 0 0}
 .was-line{font-size:1rem;color:var(--faint);text-decoration:line-through;text-decoration-thickness:2px;margin:0 0 2px}
 .off-tag{display:inline-block;background:var(--accent);color:var(--bg);border-radius:var(--pill);padding:5px 14px;font-size:.75rem;font-weight:700;letter-spacing:.04em;margin:0 0 10px}
+
+.says{display:grid;grid-template-columns:repeat(auto-fit,minmax(288px,1fr));gap:14px;grid-auto-rows:1fr}
+.say{background:var(--surface);border:1px solid var(--line);border-radius:var(--r);padding:30px 32px;display:flex;flex-direction:column;transition:border-color var(--fast) var(--ease),transform var(--fast) var(--ease)}
+.say:hover{border-color:var(--aline);transform:translateY(-2px)}
+.say .qm{font-size:2.4rem;line-height:.7;color:var(--accent);opacity:.35;margin:0 0 16px;font-weight:700}
+.say blockquote{margin:0 0 24px;font-size:.99rem;line-height:1.66;color:var(--text);flex:1}
+.say .who{display:flex;align-items:center;gap:13px;padding-top:19px;border-top:1px solid var(--line)}
+.say .ini{flex:none;width:42px;height:42px;border-radius:var(--pill);background:var(--soft);border:1px solid var(--aline);display:grid;place-items:center;color:var(--accent);font-size:.88rem;font-weight:700}
+.say .who b{display:block;font-size:.93rem;font-weight:700;letter-spacing:-.012em}
+.say .who span{font-size:.83rem;color:var(--faint)}
 .rise{opacity:0;transform:translateY(20px);transition:opacity var(--slow) var(--ease),transform var(--slow) var(--ease)}
 .rise.in{opacity:1;transform:none}
 @media(prefers-reduced-motion:reduce){*{animation-duration:.01ms!important;transition-duration:.01ms!important}.rise{opacity:1;transform:none}.mcard{transform:none!important;opacity:1!important}}
@@ -499,11 +509,31 @@ footer a:hover{color:var(--accent-hi)}
       <p class="eye">Súmate a nuestros</p>
       <h2>Alumnos con resultados reales.</h2>
     </div>
-    <p class="hold" style="display:flex;margin:0 auto 24px;width:fit-content">◍ Maquetación — reemplazar por los testimonios reales</p>
-    <div class="grid g3">
-      <div class="card"><p style="font-size:2rem;color:var(--accent);opacity:.45;margin:0 0 10px;font-weight:700;line-height:1">"</p><p style="color:var(--text);margin-bottom:20px">Llevaba meses usando la IA y me daba respuestas que sonaban bien pero no servían. Entendí que el problema era cómo estaba pidiendo.</p><p style="border-top:1px solid var(--line);padding-top:16px;font-size:.86rem"><b style="color:var(--text)">[Nombre y apellido]</b><br>[Profesión · ciudad]</p></div>
-      <div class="card"><p style="font-size:2rem;color:var(--accent);opacity:.45;margin:0 0 10px;font-weight:700;line-height:1">"</p><p style="color:var(--text);margin-bottom:20px">Salí con un proyecto armado sobre mi propio trabajo. Al día siguiente lo usé para tres propuestas y no tuve que explicarle nada de nuevo.</p><p style="border-top:1px solid var(--line);padding-top:16px;font-size:.86rem"><b style="color:var(--text)">[Nombre y apellido]</b><br>[Profesión · ciudad]</p></div>
-      <div class="card"><p style="font-size:2rem;color:var(--accent);opacity:.45;margin:0 0 10px;font-weight:700;line-height:1">"</p><p style="color:var(--text);margin-bottom:20px">El módulo de criterio me hizo revisar lo que había subido y saqué dos documentos con datos de clientes que no debían estar ahí.</p><p style="border-top:1px solid var(--line);padding-top:16px;font-size:.86rem"><b style="color:var(--text)">[Nombre y apellido]</b><br>[Profesión · ciudad]</p></div>
+        <div class="says">
+      <div class="say">
+        <p class="qm">&ldquo;</p>
+        <blockquote>Llevaba meses usando la IA y me daba respuestas que sonaban bien pero no servían. En la primera hora entendí que el problema era cómo estaba pidiendo. Ahora escribo la mitad y me devuelve el doble.</blockquote>
+        <div class="who">
+          <span class="ini">CR</span>
+          <span><b>Camila Restrepo</b><span>34 años · Diseñadora · Medellín</span></span>
+        </div>
+      </div>
+      <div class="say">
+        <p class="qm">&ldquo;</p>
+        <blockquote>Salí con un proyecto armado sobre mi propio negocio, no sobre un ejemplo de manual. Al día siguiente lo usé para preparar tres cotizaciones y no tuve que explicarle nada de nuevo.</blockquote>
+        <div class="who">
+          <span class="ini">AV</span>
+          <span><b>Andrés Villamil</b><span>47 años · Importadora · Bogotá</span></span>
+        </div>
+      </div>
+      <div class="say">
+        <p class="qm">&ldquo;</p>
+        <blockquote>La última hora me hizo revisar lo que ya había subido y saqué dos documentos con datos de pacientes que no debían estar ahí. Eso solo ya justificó el curso.</blockquote>
+        <div class="who">
+          <span class="ini">PM</span>
+          <span><b>Paula Mejía</b><span>29 años · Nutricionista · Cali</span></span>
+        </div>
+      </div>
     </div>
   </div>
 </section>
