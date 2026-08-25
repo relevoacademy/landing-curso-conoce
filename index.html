@@ -323,6 +323,12 @@ footer a:hover{color:var(--accent-hi)}
 .gift:hover .gift-go i{transform:translateX(4px)}
 .gift-fine{display:block;margin-top:9px;font-size:.76rem;color:var(--faint);
   font-weight:400;text-align:right;max-width:20ch;margin-left:auto}
+/* El regalo va PEGADO a la compra final: es el gesto justo antes del
+   pedido. Si el hueco de abajo (62+62) es mayor que el de arriba (62),
+   se lee como una seccion suelta en vez de como la antesala. */
+#regalo{padding-bottom:0}
+#regalo + section{padding-top:22px}
+
 @media(max-width:760px){
   .gift{grid-template-columns:1fr;gap:14px;padding:20px}
   .gift-fine{text-align:left;margin-top:6px}
