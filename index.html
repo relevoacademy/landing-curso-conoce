@@ -43,8 +43,8 @@ section{padding:clamp(62px,7vw,102px) 0}
 /* Tipografía de la referencia: sans + serif cursiva */
 .disp{font-family:var(--serif);font-style:italic;font-weight:400;background:linear-gradient(120deg,var(--accent-hi),var(--accent) 45%,var(--accent-deep));-webkit-background-clip:text;background-clip:text;color:transparent;letter-spacing:-.01em}
 .eye{font-family:var(--mono);font-size:.7rem;font-weight:500;letter-spacing:.2em;text-transform:uppercase;color:var(--accent);margin:0 0 16px}
-h1{font-size:clamp(2.7rem,7.3vw,4.85rem);font-weight:700;letter-spacing:-.045em;line-height:1;margin:0 0 22px;text-wrap:balance}
-h1 .disp{display:block;font-size:2.3em;line-height:.9;margin-top:-.02em;letter-spacing:-.03em}
+h1{font-size:clamp(2.45rem,6.5vw,4.3rem);font-weight:700;letter-spacing:-.045em;line-height:1;margin:0 0 22px;text-wrap:balance}
+h1 .disp{display:block;font-size:2.06em;line-height:.9;margin-top:-.02em;letter-spacing:-.03em}
 h2{font-size:clamp(1.85rem,3.6vw,2.7rem);font-weight:700;letter-spacing:-.036em;line-height:1.08;margin:0 0 16px;text-wrap:balance}
 h3{font-size:1.04rem;font-weight:700;letter-spacing:-.016em;margin:0 0 7px}
 p{margin:0 0 15px}
@@ -86,7 +86,7 @@ p{margin:0 0 15px}
 .frame::after{top:-8px;right:-8px}
 .frame .c1{bottom:-8px;left:-8px}
 .frame .c2{bottom:-8px;right:-8px}
-.cicon{width:clamp(76px,10.3vw,112px);height:auto;aspect-ratio:1;display:block;
+.cicon{width:clamp(68px,9.1vw,98px);height:auto;aspect-ratio:1;display:block;
   margin:0 auto 26px;border-radius:24px;
   box-shadow:0 14px 44px -14px rgba(217,119,87,.6)}
 .tag-f{position:absolute;font-size:1.12rem;font-weight:700;letter-spacing:-.016em;
@@ -252,7 +252,15 @@ footer a:hover{color:var(--accent-hi)}
    Reemplaza el mockup estático. Muestra lo que la sección promete: que no
    hay que saber nada. Se escribe solo, en bucle, y se detiene cuando no
    está en pantalla para no gastar batería. */
-.demo{background:linear-gradient(150deg,var(--surface),var(--bg));
+.demo-caja{position:relative}
+/* Luz detras de la consola. Va en el envoltorio y no en .demo porque ese
+   tiene overflow:hidden para recortar sus esquinas, y recortaria la luz. */
+.demo-caja::before{content:"";position:absolute;z-index:0;pointer-events:none;
+  top:-14%;left:-12%;width:124%;height:128%;
+  background:radial-gradient(ellipse at 50% 45%,rgba(31,230,171,.30),rgba(31,230,171,.10) 42%,transparent 68%);
+  filter:blur(14px)}
+.demo{position:relative;z-index:1;box-shadow:0 0 0 1px rgba(31,230,171,.14),0 26px 70px -34px rgba(31,230,171,.55);
+  background:linear-gradient(150deg,var(--surface),var(--bg));
   border:1px solid var(--aline);border-radius:var(--r);overflow:hidden;
   display:flex;flex-direction:column;height:clamp(400px,52vh,470px)}
 .demo-bar{padding:12px 16px;border-bottom:1px solid var(--line);
@@ -282,7 +290,7 @@ footer a:hover{color:var(--accent-hi)}
 .demo-pie u{flex:none;width:28px;height:28px;border-radius:9px;background:var(--soft);
   border:1px solid var(--aline);display:grid;place-items:center;color:var(--accent);
   font-size:.78rem;text-decoration:none}
-.demo-nota{font-family:var(--mono);font-size:.66rem;color:var(--faint);text-align:center;
+.demo-nota{position:relative;z-index:1;font-family:var(--mono);font-size:.66rem;color:var(--faint);text-align:center;
   margin:12px 0 0;letter-spacing:.07em}
 @media(prefers-reduced-motion:reduce){
   .b{opacity:1!important;transform:none!important;animation:none!important}
@@ -314,7 +322,7 @@ footer a:hover{color:var(--accent-hi)}
       <span class="tag-f tag-a"><svg class="puntero" viewBox="0 0 24 24" aria-hidden="true"><path d="M2.5 2.2 L21 10.4 Q11.4 11.4 10.6 21.4 Z" fill="currentColor"/></svg>Paso a paso</span>
       <span class="tag-f tag-b"><svg class="puntero" viewBox="0 0 24 24" aria-hidden="true"><path d="M2.5 2.2 L21 10.4 Q11.4 11.4 10.6 21.4 Z" fill="currentColor"/></svg>Desde cero</span>
 
-      <img class="cicon" src="assets/claude-icon.svg" alt="Claude" width="112" height="112">
+      <img class="cicon" src="assets/claude-icon.svg" alt="Claude" width="98" height="98">
       <h1>Curso online de <span class="disp">Claude</span></h1>
       <p class="lede">Aprende a usar Claude <b>desde cero</b> — y termina con <b>algo tuyo funcionando</b>.</p>
 
@@ -385,7 +393,7 @@ footer a:hover{color:var(--accent-hi)}
       <p class="lede">De 0 a 100. Cada concepto se explica con <b>ejemplos reales</b>, cada herramienta se enseña <b>paso a paso</b> y tu caso lo construimos juntos, en vivo.</p>
       <p class="lede">El programa está diseñado para que aprendas Claude desde cero, sin requisitos técnicos previos ni relleno. No necesitas programar y no necesitas pagar una cuenta.</p>
     </div>
-    <div>
+    <div class="demo-caja">
       <div class="demo" id="demo" aria-label="Demostración de una conversación con Claude">
         <div class="demo-bar"><i></i><i></i><i></i><img class="demo-logo" src="assets/relevo-lockup.png" alt="Relevo"></div>
         <div class="demo-hilo" id="hilo" aria-live="polite"></div>
