@@ -10,7 +10,7 @@
 
 > Página de venta del **01 CONOCE**, el primer curso de la ruta de Relevo. Una sola página, sin build, sin dependencias y **sin una sola cifra que no se pueda sostener**.
 
-**[🌐 relevo.academy](https://relevo.academy)** · **[📸 @relevo.academy](https://instagram.com/relevo.academy)** · **[✉️ relevoacademy@gmail.com](mailto:relevoacademy@gmail.com)**
+**[🌐 curso.relevo.academy](https://curso.relevo.academy/)** · **[📸 @relevo.academy](https://instagram.com/relevo.academy)** · **[✉️ relevoacademy@gmail.com](mailto:relevoacademy@gmail.com)**
 
 ---
 
