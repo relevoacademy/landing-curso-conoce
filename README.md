@@ -48,10 +48,10 @@ flowchart TD
   Z --> T["📚 Temario<br/><sub>5 módulos con duración</sub>"]
   T --> PR["💳 Precio<br/><sub>oferta + medios + garantía</sub>"]
   PR --> CE["🎓 Certificado<br/><sub>por qué vale algo</sub>"]
-  CE --> TE["💬 Testimonios"]
-  TE --> M["📡 Modalidad"]
+  CE --> M["📡 Modalidad"]
   M --> F["❓ Preguntas<br/><sub>11 objeciones</sub>"]
-  F --> FIN["✅ Cierre<br/><sub>último CTA + garantía</sub>"]
+  F --> RG["🎁 El regalo<br/><sub>diagnóstico de madurez, gratis</sub>"]
+  RG --> FIN["✅ Cierre<br/><sub>último CTA + garantía</sub>"]
 
   P -.->|CTA| PR
   T -.->|CTA| PR
@@ -60,7 +60,7 @@ flowchart TD
 
 **Decisiones clave:**
 
-- **El CTA aparece 5 veces**: barra fija, portada, después del temario, en el precio y en el cierre. El del temario es deliberado — es el punto donde la persona ya sabe qué incluye y todavía no ha visto el precio.
+- **El CTA aparece 4 veces**, y todos apuntan a la misma constante `CTA_URL`. El del temario es deliberado — es el punto donde la persona ya sabe qué incluye y todavía no ha visto el precio.
 - **La garantía se presenta dos veces**, junto al precio y en el cierre. Una garantía que solo aparece una vez se pierde en el scroll.
 - **Las objeciones van en orden de aparición mental**, no en orden temático: primero "no sé nada", después "cuánto dura", después "ya uso ChatGPT", y al final "desde qué país".
 - **Los tres pasos cierran en 60 · 60 · 60.** Los cinco módulos se reagruparon para que cada paso dure exactamente una hora: Entiende (15+45), Construye (60), Aplica (40+20). Antes sumaban 215 minutos y no coincidían con ninguna promesa de la página.
@@ -82,6 +82,7 @@ flowchart TD
 | 🧾 **Medios de pago** | Los que Hotmart ofrece en Colombia — verificados, no supuestos |
 | 🎓 **Certificado** | *Se aprueba, no se regala* — hay examen |
 | ❓ **Preguntas** | 11 objeciones, desplegables |
+| 🎁 **El regalo** | El diagnóstico de madurez, gratis — después de resolver dudas y antes del último pedido |
 
 ---
 
@@ -177,13 +178,29 @@ con nombre, edad, profesión y ciudad de personas que no existen.
 > Un testimonio con nombre propio que nadie dijo no es maquetación: es publicidad
 > engañosa. La sección vuelve cuando haya testimonios reales con permiso.
 
-Queda **una sola cosa pendiente**, y no se ve en la página:
+**El checkout está conectado.** `CTA_URL` apunta a `pay.hotmart.com/A107324107L`
+y los cuatro botones leen de ahí. Cambiar el enlace es cambiar una sola línea.
+
+Quedan dos cosas, ninguna bloqueante:
 
 | Pendiente | Dónde |
 |---|---|
-| Enlace de pago de Hotmart | `const CTA_URL` — una sola constante alimenta los 5 botones |
+| Páginas legales | Términos, tratamiento de datos y aviso de privacidad están en `href="#"` |
+| Contraste de la letra chica | `--faint` (`#6E7376`) da 3,85:1 sobre el negro — por debajo del 4,5:1 de WCAG AA. Son 17 usos en toda la página, no solo uno |
 
-Mientras `CTA_URL` sea `"#"`, los botones no llevan a ninguna parte.
+### 🚨 Lección: el merge del PR #2
+
+El **25 de agosto de 2026** se mergeó el PR #2, una rama anterior a esta versión.
+GitHub la mergeó sin conflictos y **pisó la landing terminada**: se perdieron el
+demo de conversación, el ícono de Claude y los punteros, y volvieron cuatro `TODO`
+visibles y los testimonios inventados.
+
+Se resolvió con `git revert` —no con force-push— así que el PR #2 sigue en la
+historia por si alguna vez hace falta algo de ahí.
+
+> **Una rama vieja no envejece sola.** Si un PR de este repositorio lleva días
+> abierto, hay que rebasarlo contra `main` y volver a mirarlo antes de mergear.
+> Que no haya conflictos no significa que no pise nada.
 
 ---
 

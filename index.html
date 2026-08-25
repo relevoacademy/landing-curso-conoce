@@ -298,6 +298,29 @@ footer a:hover{color:var(--accent-hi)}
 }
 .js .rise{opacity:0;transform:translateY(20px);transition:opacity var(--slow) var(--ease),transform var(--slow) var(--ease)}
 .js .rise.in{opacity:1;transform:none}
+/* ── El regalo ──
+   Va después de las preguntas y antes del último bloque de compra: quien
+   llegó hasta acá ya resolvió sus dudas y recibe algo antes de que se le
+   vuelva a pedir. La tarjeta entera es el enlace, no solo la última línea. */
+.gift{position:relative;display:grid;grid-template-columns:auto 1fr;gap:26px;align-items:start;
+  text-decoration:none;color:inherit;border-radius:var(--r);padding:34px 36px;
+  background:linear-gradient(180deg,rgba(31,230,171,.07),rgba(31,230,171,.02));
+  border:1px solid var(--aline);
+  transition:border-color var(--fast) var(--ease),transform var(--fast) var(--ease)}
+.gift:hover{border-color:rgba(31,230,171,.55);transform:translateY(-3px)}
+.gift:focus-visible{outline:2px solid var(--accent-hi);outline-offset:4px}
+.gift-mark{width:56px;height:56px;border-radius:var(--r-in);display:grid;place-items:center;
+  background:var(--soft);border:1px solid var(--aline);font-size:1.5rem;line-height:1}
+.gift-tx h2{margin:7px 0 13px}
+.gift-tx .lede{margin:0 0 12px;max-width:62ch}
+.gift-p{margin:0 0 22px;color:var(--dim);font-size:.97rem;line-height:1.7;max-width:62ch}
+.gift-go{display:inline-flex;align-items:center;gap:9px;font-weight:700;font-size:1.02rem;
+  color:var(--accent)}
+.gift-go i{font-style:normal;transition:transform var(--fast) var(--ease)}
+.gift:hover .gift-go{color:var(--accent-hi)}
+.gift:hover .gift-go i{transform:translateX(4px)}
+.gift-fine{display:block;margin-top:11px;font-size:.83rem;color:var(--faint)}
+@media(max-width:700px){.gift{grid-template-columns:1fr;gap:18px;padding:28px 22px}}
 @media(prefers-reduced-motion:reduce){*{animation-duration:.01ms!important;transition-duration:.01ms!important}.rise{opacity:1;transform:none}}
 </style>
 
@@ -536,7 +559,8 @@ footer a:hover{color:var(--accent-hi)}
         <h4>Curso online de Claude</h4>
         <p class="nm">Chat, Proyectos y Artefactos</p>
         <p class="fo">RELEVO — ACADEMIA DE IA · 3 HORAS · EXAMEN APROBADO</p>
-      </div>
+      </div>
+
     </div>
   </div>
 </section>
@@ -582,7 +606,24 @@ footer a:hover{color:var(--accent-hi)}
   </div>
 </section>
 
-<!-- ══ 12 · COMPRA FINAL ══ -->
+<!-- ══ 12 · EL REGALO ══ -->
+<section class="band" id="regalo">
+  <div class="wrap">
+    <a class="gift" href="https://diagnostico-madurez-ia-one.vercel.app/" target="_blank" rel="noopener">
+      <span class="gift-mark" aria-hidden="true">🎁</span>
+      <div class="gift-tx">
+        <p class="eye">Un regalo, sin condiciones</p>
+        <h2>¿En qué nivel estás <span class="disp">usando la IA</span>?</h2>
+        <p class="lede">Tres prompts que leen tu propia memoria y tu historial — en ChatGPT o en Claude — y te dicen tu nivel real en cinco dimensiones, con la evidencia que lo sustenta.</p>
+        <p class="gift-p">No te pregunta cómo crees que trabajas: mira lo que ya hiciste. Y si resulta que ya lo haces bien, también te lo dice.</p>
+        <span class="gift-go">Abrir mi diagnóstico <i aria-hidden="true">→</i></span>
+        <span class="gift-fine">Gratis · Sin registro · Se abre en otra pestaña</span>
+      </div>
+    </a>
+  </div>
+</section>
+
+<!-- ══ 13 · COMPRA FINAL ══ -->
 <section>
   <div class="wrap">
     <div class="buy">
@@ -652,8 +693,8 @@ footer a:hover{color:var(--accent-hi)}
 </footer>
 
 <script>
-/* TODO: reemplazar por el enlace de pago definitivo (Hotmart) */
-const CTA_URL = "#";
+/* Checkout de Hotmart. Una sola constante alimenta los cinco CTA. */
+const CTA_URL = "https://pay.hotmart.com/A107324107L";
 
 (function(){
   document.querySelectorAll('[data-cta]').forEach(function(a){ a.href = CTA_URL; });
