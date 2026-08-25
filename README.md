@@ -41,16 +41,17 @@ Todo el contenido vive en un solo `index.html`. No hay framework, no hay paso de
 
 ```mermaid
 flowchart TD
-  P["🏠 Portada<br/><sub>marco + oferta + comunidad</sub>"] --> H["🧰 7 herramientas<br/><sub>qué te llevas puesto</sub>"]
-  H --> C["🎁 Lo que vas a crear<br/><sub>4 entregables concretos</sub>"]
-  C --> Z["🌱 Desde cero<br/><sub>derriba: no sé nada</sub>"]
-  Z --> T["📚 Programa<br/><sub>5 módulos en acordeón</sub>"]
-  T --> PR["💳 Compra principal"]
-  PR --> CE["🎓 Certificado"]
+  P["🏠 Portada<br/><sub>promesa + oferta + prueba social</sub>"] --> ME["🧭 Método 3 pasos<br/><sub>Entiende → Construye → Aplica</sub>"]
+  ME --> H["🧰 Herramientas<br/><sub>qué te llevas puesto</sub>"]
+  H --> C["🎁 Lo que vas a construir<br/><sub>4 entregables concretos</sub>"]
+  C --> Z["🌱 Empezamos desde cero<br/><sub>derriba: no sé nada</sub>"]
+  Z --> T["📚 Temario<br/><sub>5 módulos con duración</sub>"]
+  T --> PR["💳 Precio<br/><sub>oferta + medios + garantía</sub>"]
+  PR --> CE["🎓 Certificado<br/><sub>por qué vale algo</sub>"]
   CE --> TE["💬 Testimonios"]
-  TE --> M["📡 Modalidad<br/><sub>2 clases en vivo</sub>"]
-  M --> F["❓ 10 preguntas<br/><sub>dos columnas</sub>"]
-  F --> FIN["✅ Compra final<br/><sub>+ garantía de 7 días</sub>"]
+  TE --> M["📡 Modalidad"]
+  M --> F["❓ Preguntas<br/><sub>11 objeciones</sub>"]
+  F --> FIN["✅ Cierre<br/><sub>último CTA + garantía</sub>"]
 
   P -.->|CTA| PR
   T -.->|CTA| PR
@@ -97,14 +98,13 @@ Los números de la página tienen que coincidir con el [taller que se entrega](h
 | Dato | Valor |
 |------|-------|
 | Duración | **3 horas en vivo** |
-| Formato | **2 clases por Zoom de 1 h 30 min cada una**, grabadas |
-| Módulos | 5 (00 a 04) |
-| Herramientas | **7** |
+| Método | **3 pasos: Entiende → Construye → Aplica** |
+| Módulos | 5 (01 a 05), repartidos en los 3 pasos |
+| Herramientas | 7 |
 | Precio regular | USD 110 |
 | Precio de lanzamiento | USD 55 — **primeros 50 inscritos** |
 | Garantía | 7 días |
-| Certificado | Con examen aprobado — educación informal |
-| Checkout | Hotmart |
+| Certificado | Con examen aprobado |
 
 > Si cambia el taller, **la landing cambia en el mismo commit**. El certificado también lleva la duración — son tres piezas que se mueven juntas.
 
@@ -115,30 +115,6 @@ USD 55 es una **promoción real sobre un precio real**: el curso vale USD 110 y 
 Para que el tachado sea legítimo —y no un descuento ficticio, prohibido por el Estatuto del Consumidor— la promoción **tiene que terminar**. Su condición es **los primeros 50 inscritos**, y está escrita en la página y en el artículo 4 de los Términos.
 
 > **Alcanzados los 50, el precio sube.** Si no sube, el USD 110 nunca fue real y toda la página queda bajo sospecha. Es la misma trampa del *75% OFF permanente* que se le critica a la competencia.
-
----
-
-## 🔗 Checkout
-
-El pago se procesa en **Hotmart**. Todos los CTA leen una sola constante al inicio del script:
-
-```js
-const CTA_URL = "https://pay.hotmart.com/A107324107L";
-```
-
-Si cambia el producto, se cambia esa línea y nada más.
-
-> ⚠️ **Pendiente en Hotmart:** el producto se llama ahí *"Conoce a tu Futuro Asistente de IA"*. La landing dice *"Curso online de Claude"*. Quien toca el botón aterriza en otro nombre y una parte va a creer que se equivocó de enlace.
-
----
-
-## 🖼️ Sobre la referencia
-
-Esta versión **modela la arquitectura** de la página de referencia entregada por la estrategia: orden de secciones, marco decorativo con esquinas, etiquetas flotantes, contraste sans + serif cursiva, bloques de compra repetidos y preguntas en dos columnas.
-
-Lo único que se toma es la **estructura**. El copy, la identidad, los precios y las reglas de contenido son de Relevo.
-
-**El contraste tipográfico es la firma visual:** Instrument Sans para todo, e **Instrument Serif cursiva** solo para la palabra protagonista de cada titular. Son de la misma familia y están hechas para ir juntas.
 
 ---
 
