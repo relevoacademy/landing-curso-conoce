@@ -298,6 +298,35 @@ footer a:hover{color:var(--accent-hi)}
 }
 .js .rise{opacity:0;transform:translateY(20px);transition:opacity var(--slow) var(--ease),transform var(--slow) var(--ease)}
 .js .rise.in{opacity:1;transform:none}
+/* ── WhatsApp ──
+   El verde de WhatsApp (#25D366) esta a 20 grados de tono del verde de
+   Relevo: juntos se leen como el mismo verde mal impreso. Por eso en
+   reposo va oscuro —el unico boton verde de la pagina sigue siendo el de
+   compra— y se pone verde de WhatsApp solo al pasarle el mouse. El glifo
+   ya lo hace reconocible sin necesidad del color. */
+.wa{position:fixed;right:22px;bottom:22px;z-index:80;
+  display:inline-flex;align-items:center;gap:11px;text-decoration:none;
+  padding:13px 21px 13px 16px;border-radius:var(--pill);
+  background:var(--surface-2);color:var(--text);border:1px solid var(--line-strong);
+  font-family:var(--sans);font-size:.92rem;font-weight:600;letter-spacing:-.01em;
+  box-shadow:0 14px 34px -14px rgba(0,0,0,.9);
+  transition:background var(--fast) var(--ease),color var(--fast) var(--ease),
+             border-color var(--fast) var(--ease),transform var(--fast) var(--ease)}
+.wa svg{width:23px;height:23px;fill:currentColor;flex:none}
+.wa:hover{background:#25D366;color:#06301A;border-color:#25D366;transform:translateY(-2px)}
+.wa:focus-visible{outline:2px solid var(--accent-hi);outline-offset:3px}
+/* Arriba de todo nadie tiene una duda: no ha leido nada. Aparece cuando
+   ya paso el hero — y de paso deja de chocar con el CTA de la portada,
+   que en movil comparte franja con el. Sin JS queda siempre visible. */
+.js .wa{opacity:0;visibility:hidden;pointer-events:none}
+.js .wa.se-ve{opacity:1;visibility:visible;pointer-events:auto}
+@media(max-width:620px){
+  .wa{padding:0;width:56px;height:56px;justify-content:center;right:16px;bottom:16px}
+  .wa .wa-tx{display:none}
+  .wa svg{width:27px;height:27px}
+}
+@media(prefers-reduced-motion:reduce){.wa,.wa:hover{transition:none;transform:none}}
+
 /* El certificado real. Es una imagen oscura sobre fondo oscuro, asi que
    necesita su propio borde para no disolverse en la pagina. */
 .cert{margin:0;border-radius:var(--r);overflow:hidden;border:1px solid var(--line-strong);
@@ -708,6 +737,12 @@ footer a:hover{color:var(--accent-hi)}
   </div>
 </footer>
 
+<a class="wa" href="https://wa.me/573021025626?text=Hola%2C%20tengo%20una%20duda%20sobre%20el%20curso%20de%20Claude."
+   target="_blank" rel="noopener" aria-label="Escríbenos por WhatsApp al +57 302 1025626">
+  <svg viewBox="0 0 24 24" aria-hidden="true"><path d="M17.472 14.382c-.297-.149-1.758-.867-2.03-.967-.273-.099-.471-.148-.67.15-.197.297-.767.966-.94 1.164-.173.199-.347.223-.644.075-.297-.15-1.255-.463-2.39-1.475-.883-.788-1.48-1.761-1.653-2.059-.173-.297-.018-.458.13-.606.134-.133.298-.347.446-.52.149-.174.198-.298.298-.497.099-.198.05-.371-.025-.52-.075-.149-.669-1.612-.916-2.207-.242-.579-.487-.5-.669-.51-.173-.008-.371-.01-.57-.01-.198 0-.52.074-.792.372-.272.297-1.04 1.016-1.04 2.479 0 1.462 1.065 2.875 1.213 3.074.149.198 2.096 3.2 5.077 4.487.71.306 1.263.489 1.694.625.712.227 1.36.195 1.872.118.571-.085 1.758-.719 2.006-1.413.248-.694.248-1.289.173-1.413-.074-.124-.272-.198-.57-.347m-5.421 7.403h-.004a9.87 9.87 0 01-5.031-1.378l-.361-.214-3.741.982.998-3.648-.235-.374a9.86 9.86 0 01-1.51-5.26c.001-5.45 4.436-9.884 9.888-9.884 2.64 0 5.122 1.03 6.988 2.898a9.825 9.825 0 012.893 6.994c-.003 5.45-4.437 9.884-9.885 9.884m8.413-18.297A11.815 11.815 0 0012.05 0C5.495 0 .16 5.335.157 11.892c0 2.096.547 4.142 1.588 5.945L.057 24l6.305-1.654a11.882 11.882 0 005.683 1.448h.005c6.554 0 11.89-5.335 11.893-11.893A11.821 11.821 0 0020.465 3.488"/></svg>
+  <span class="wa-tx">¿Dudas? Escríbenos</span>
+</a>
+
 <script>
 /* Checkout de Hotmart. Una sola constante alimenta los cinco CTA. */
 const CTA_URL = "https://pay.hotmart.com/A107324107L";
@@ -830,6 +865,20 @@ const CTA_URL = "https://pay.hotmart.com/A107324107L";
 
   new IntersectionObserver(revisar, {threshold:.25}).observe(caja);
   document.addEventListener('visibilitychange', revisar);
+  addEventListener('pageshow', revisar);
+  revisar();
+})();
+
+/* ── El boton de WhatsApp ── */
+(function(){
+  'use strict';
+  var wa = document.querySelector('.wa');
+  if (!wa) return;
+  function revisar(){
+    wa.classList.toggle('se-ve', (window.pageYOffset || document.documentElement.scrollTop) > Math.min(innerHeight * 0.85, 640));
+  }
+  addEventListener('scroll', revisar, {passive:true});
+  addEventListener('resize', revisar);
   addEventListener('pageshow', revisar);
   revisar();
 })();
