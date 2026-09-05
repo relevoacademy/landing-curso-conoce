@@ -379,7 +379,7 @@ footer a:hover{color:var(--accent-hi)}
       <a class="t" href="#programa">Programa</a>
       <a class="t" href="#precio">Precio</a>
       <a class="t" href="#preguntas">Preguntas</a>
-      <a class="btn sm" data-cta href="#">Quiero acceder</a>
+      <a class="btn sm" data-cta href="https://pay.hotmart.com/A107324107L">Quiero acceder</a>
     </div>
   </div>
 </nav>
@@ -401,7 +401,7 @@ footer a:hover{color:var(--accent-hi)}
         <span class="off">50% de descuento</span>
         <span class="now"><small>USD</small>55</span>
       </p>
-      <a class="btn" data-cta href="#">Quiero acceder</a>
+      <a class="btn" data-cta href="https://pay.hotmart.com/A107324107L">Quiero acceder</a>
       <p class="micro"><b>Pago único</b> · material sin vencimiento · <b>garantía de 7 días</b></p>
 
       <div class="proof">
@@ -572,7 +572,7 @@ footer a:hover{color:var(--accent-hi)}
       </div>
 
       <p class="cupos">◍ Precio de primera edición · primeros 50 inscritos</p>
-      <a class="btn full" data-cta href="#">Quiero acceder</a>
+      <a class="btn full" data-cta href="https://pay.hotmart.com/A107324107L">Quiero acceder</a>
       <div class="pays">
             <span class="pay" title="Visa"><span style="color:#1434CB;font-style:italic;font-size:.86rem">VISA</span></span>
             <span class="pay" title="Mastercard"><svg viewBox="0 0 40 25" aria-label="Mastercard"><circle cx="15" cy="12.5" r="10.5" fill="#EB001B"/><circle cx="25" cy="12.5" r="10.5" fill="#F79E1B" fill-opacity=".9"/></svg></span>
@@ -687,7 +687,7 @@ footer a:hover{color:var(--accent-hi)}
         <p class="big"><small>USD</small>55</p>
       </div>
       <p class="cupos">◍ Precio de primera edición · primeros 50 inscritos</p>
-      <a class="btn full" data-cta href="#">Quiero acceder</a>
+      <a class="btn full" data-cta href="https://pay.hotmart.com/A107324107L">Quiero acceder</a>
       <p class="gtee">◍ Garantía de 7 días</p>
       <p class="gtee-tx">Tienes 7 días de garantía. Si el programa no es para ti, solicita la devolución dentro de este plazo.</p>
       <div class="pays">
@@ -744,8 +744,13 @@ footer a:hover{color:var(--accent-hi)}
 </a>
 
 <script>
-/* Checkout de Hotmart. Una sola constante alimenta los cinco CTA. */
-const CTA_URL = "https://pay.hotmart.com/A107324107L";
+/* Checkout de Hotmart.
+     El enlace va escrito en el href de los CUATRO botones: un boton de cobrar
+     no puede depender de que un script se ejecute. Si el JS falla, lo bloquea
+     una extension o revienta una linea antes, los botones siguen sirviendo.
+     Esta constante es el respaldo y la fuente unica al cambiarlo: si se edita
+     aca, se propaga al cargar. Si se edita en el HTML, cambiar tambien aca. */
+  const CTA_URL = "https://pay.hotmart.com/A107324107L";
 
 (function(){
   document.querySelectorAll('[data-cta]').forEach(function(a){ a.href = CTA_URL; });
